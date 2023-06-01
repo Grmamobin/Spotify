@@ -15,7 +15,7 @@
       <Button layoutX="220.0" layoutY="305.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: #37FD12;" text="Log in" />
       <ImageView fitHeight="131.0" fitWidth="363.0" layoutX="136.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../java/com/example/spotify/Pictures/spotify.png" />
+            <Image url="@Pictures/spotify.png" />
          </image>
       </ImageView>
    </children>
