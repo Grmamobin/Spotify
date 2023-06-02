@@ -6,13 +6,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.MenuInput">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #000;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.Front_end.MenuInput">
    <children>
     
       <Label layoutX="220.0" layoutY="179.0" prefHeight="26.0" prefWidth="171.0" text="Millions  of  songs." textFill="WHITE" />
       <Label layoutX="228.0" layoutY="205.0" prefHeight="17.0" prefWidth="113.0" text="Free  on  Spotify." textFill="WHITE" />
-      <Button layoutX="136.0" layoutY="253.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="297.0" style="-fx-background-color: #37FD12;" text="Sign up free" />
-      <Button layoutX="220.0" layoutY="305.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: #37FD12;" text="Log in" />
+      <Button defaultButton="true" layoutX="136.0" layoutY="253.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="297.0" style="-fx-background-color: #4FC978;" text="Sign up free" />
+      <Button layoutX="220.0" layoutY="305.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: #4FC978;" text="Log in" />
       <ImageView fitHeight="131.0" fitWidth="363.0" layoutX="136.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Pictures/spotify.png" />

@@ -14,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #808080;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.signUp">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #808080;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.Front_end.signUp">
    <children>
       <Pane prefHeight="400.0" prefWidth="178.0" style="-fx-background-color: #000;">
          <children>
@@ -36,7 +36,7 @@
          </font>
       </Label>
       <Label layoutX="257.0" layoutY="183.0" />
-      <TextField layoutX="340.0" layoutY="135.0" onAction="#username" prefHeight="26.0" prefWidth="196.0" promptText="username">
+      <TextField fx:id="username" layoutX="340.0" layoutY="135.0" onAction="#username" prefHeight="26.0" prefWidth="196.0" promptText="username">
          <effect>
             <Lighting>
                <bumpInput>
@@ -48,7 +48,7 @@
             </Lighting>
          </effect>
       </TextField>
-      <TextField layoutX="340.0" layoutY="221.0" onAction="#email" prefHeight="26.0" prefWidth="196.0" promptText="email">
+      <TextField fx:id="email" layoutX="340.0" layoutY="221.0" onAction="#email" prefHeight="26.0" prefWidth="196.0" promptText="email">
          <effect>
             <Lighting>
                <bumpInput>
@@ -70,7 +70,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <PasswordField layoutX="341.0" layoutY="179.0" onAction="#password" prefHeight="26.0" prefWidth="196.0" promptText="*****">
+      <PasswordField fx:id="password" layoutX="341.0" layoutY="179.0" onAction="#password" prefHeight="26.0" prefWidth="196.0" promptText="*****">
          <effect>
             <Lighting>
                <bumpInput>
@@ -82,11 +82,12 @@
             </Lighting>
          </effect>
       </PasswordField>
-      <Button layoutX="244.0" layoutY="302.0" mnemonicParsing="false" onAction="#signUp" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #3DB489;" text="Sign up" textFill="WHITE" />
+      <Button layoutX="250.0" layoutY="323.0" mnemonicParsing="false" onAction="#signUp" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #3DB489;" text="Sign up" textFill="WHITE" />
       <ImageView fitHeight="23.0" fitWidth="29.0" layoutX="541.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Pictures/hidden.png" />
          </image>
       </ImageView>
+      <Button layoutX="293.0" layoutY="289.0" mnemonicParsing="false" onAction="#hadAccount" prefHeight="3.0" prefWidth="178.0" style="-fx-background-color: #808080;" text="had an account?" textFill="#4d1708" textOverrun="WORD_ELLIPSIS" />
    </children>
 </AnchorPane>

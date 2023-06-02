@@ -1,11 +1,12 @@
-package com.example.spotify;
+package com.example.spotify.Front_end;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
-import javafx.scene.image.ImageView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import com.example.spotify.DataBase.User;
 
 public class login {
 
@@ -19,16 +20,15 @@ public class login {
     private PasswordField password;
 
     @FXML
-    void username(ActionEvent event) {
+    private TextField username;
+
+    @FXML
+    void login(ActionEvent event) {
+
+       /* User recentUser = new User(username.getText(),"",password.getText());*/
+
 
     }
-    @FXML
-    void hidden(ActionEvent event) {
-        if (hidden.isPressed()) {
-            password.setVisible(false);
-        } else {
-            password.setVisible(true);
-        }
-    }
+
 
 }

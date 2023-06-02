@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane layoutY="-1.0" prefHeight="890.0" prefWidth="247.0" style="-fx-background-color: #121212;">
+         <children>
+            <ImageView fitHeight="101.0" fitWidth="200.0" layoutX="26.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/Spotify_Logo_RGB_White.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="46.0" fitWidth="45.0" layoutX="50.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/home%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="47.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/loupe%20(1).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="111.0" layoutY="174.0" prefHeight="23.0" prefWidth="60.0" text="Search" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.7880886426592798" centerY="1.0" focusDistance="-1.0" radius="0.7687861271676301">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="109.0" layoutY="119.0" prefHeight="23.0" prefWidth="60.0" text="Home" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.7880886426592798" centerY="1.0" focusDistance="-1.0" radius="0.7687861271676301">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <ImageView fitHeight="50.0" fitWidth="42.0" layoutX="46.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/music.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="110.0" layoutY="244.0" prefHeight="23.0" prefWidth="109.0" text="Your Library" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.7880886426592798" centerY="1.0" focusDistance="-1.0" radius="0.7687861271676301">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="52.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/add%20(1).png" />
+               </image>
+            </ImageView>
+            <Label layoutX="94.0" layoutY="367.0" prefHeight="23.0" prefWidth="119.0" text=" Create Playlist" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.7880886426592798" centerY="1.0" focusDistance="-1.0" radius="0.7687861271676301">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="53.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/rating.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="106.0" layoutY="431.0" prefHeight="23.0" prefWidth="119.0" text="Liked Songs" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.7880886426592798" centerY="1.0" focusDistance="-1.0" radius="0.7687861271676301">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

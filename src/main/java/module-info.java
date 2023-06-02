@@ -5,5 +5,9 @@ module com.example.spotify {
 
     opens com.example.spotify to javafx.fxml;
     exports com.example.spotify;
+    exports com.example.spotify.Front_end;
+    opens com.example.spotify.Front_end to javafx.fxml;
+    //exports com.example.spotify.Front_end;
+    //opens com.example.spotify to javafx.fxml;
 
 }
