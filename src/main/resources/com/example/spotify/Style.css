@@ -1,0 +1,11 @@
+.search-container {
+  -fx-background-color: #fff;
+  -fx-background-radius: 100px;
+}
+
+.upgrade-button {
+  -fx-background-color: #00000000;
+  -fx-border-color: #fff;
+  -fx-border-radius: 50px;
+}
+

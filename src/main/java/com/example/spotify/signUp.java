@@ -1,4 +1,4 @@
-package com.example.spotify.Front_end;
+package com.example.spotify;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -40,7 +40,10 @@ public class signUp {
     }
 
     @FXML
-    void signUp(ActionEvent event) {
+    void signUp(ActionEvent event) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("page.fxml"));
+        stage.setScene(new Scene(root));
+        stage.show();
 
     }
 

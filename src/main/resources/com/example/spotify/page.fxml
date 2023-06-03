@@ -1,35 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="896.0" prefWidth="1315.0" style="-fx-background-color: #181818;" stylesheets="@Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.page">
    <children>
-      <Pane layoutY="-1.0" prefHeight="890.0" prefWidth="247.0" style="-fx-background-color: #121212;">
+      <Pane layoutY="-1.0" prefHeight="897.0" prefWidth="246.0" style="-fx-background-color: #121212;">
          <children>
             <ImageView fitHeight="101.0" fitWidth="200.0" layoutX="26.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/Spotify_Logo_RGB_White.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="46.0" fitWidth="45.0" layoutX="50.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="40.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/home%20(1).png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="45.0" fitWidth="45.0" layoutX="47.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="35.0" fitWidth="46.0" layoutX="41.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/loupe%20(1).png" />
                </image>
             </ImageView>
-            <Label layoutX="111.0" layoutY="174.0" prefHeight="23.0" prefWidth="60.0" text="Search" wrapText="true">
+            <Label layoutX="98.0" layoutY="183.0" prefHeight="23.0" prefWidth="60.0" text="Search" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -50,7 +55,7 @@
                   </RadialGradient>
                </textFill>
             </Label>
-            <Label layoutX="109.0" layoutY="119.0" prefHeight="23.0" prefWidth="60.0" text="Home" wrapText="true">
+            <Label fx:id="Home" layoutX="97.0" layoutY="132.0" prefHeight="23.0" prefWidth="60.0" text="Home" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -71,12 +76,12 @@
                   </RadialGradient>
                </textFill>
             </Label>
-            <ImageView fitHeight="50.0" fitWidth="42.0" layoutX="46.0" layoutY="239.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="38.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/music.png" />
                </image>
             </ImageView>
-            <Label layoutX="110.0" layoutY="244.0" prefHeight="23.0" prefWidth="109.0" text="Your Library" wrapText="true">
+            <Label fx:id="Library" layoutX="100.0" layoutY="232.0" prefHeight="23.0" prefWidth="109.0" text="Your Library" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -97,12 +102,12 @@
                   </RadialGradient>
                </textFill>
             </Label>
-            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="52.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="30.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/add%20(1).png" />
                </image>
             </ImageView>
-            <Label layoutX="94.0" layoutY="367.0" prefHeight="23.0" prefWidth="119.0" text=" Create Playlist" wrapText="true">
+            <Label fx:id="createPlayList" layoutX="72.0" layoutY="474.0" prefHeight="23.0" prefWidth="119.0" text=" Create Playlist" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -123,12 +128,64 @@
                   </RadialGradient>
                </textFill>
             </Label>
-            <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="53.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="32.0" layoutY="572.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/rating.png" />
                </image>
             </ImageView>
-            <Label layoutX="106.0" layoutY="431.0" prefHeight="23.0" prefWidth="119.0" text="Liked Songs" wrapText="true">
+            <Label fx:id="LikedSongs" layoutX="87.0" layoutY="596.0" prefHeight="23.0" prefWidth="119.0" text="Liked Songs" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.7880886426592798" centerY="1.0" focusDistance="-1.0" radius="0.7687861271676301">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <ImageView fitHeight="42.0" fitWidth="45.0" layoutX="32.0" layoutY="637.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/guitar.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="Artists" layoutX="85.0" layoutY="658.0" prefHeight="23.0" prefWidth="119.0" text="Artists" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.7880886426592798" centerY="1.0" focusDistance="-1.0" radius="0.7687861271676301">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <ImageView fitHeight="46.0" fitWidth="39.0" layoutX="30.0" layoutY="519.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/playlist.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="playLists" layoutX="81.0" layoutY="528.0" prefHeight="23.0" prefWidth="119.0" text=" Playlists" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -151,5 +208,269 @@
             </Label>
          </children>
       </Pane>
+      <Pane layoutX="248.0" layoutY="-5.0" prefHeight="86.0" prefWidth="1069.0">
+         <children>
+            <Button layoutX="50.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+            <Button layoutX="147.0" layoutY="39.0" mnemonicParsing="false" style="-fx-background-color: tranparet;" />
+            <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="134.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/right-arrow.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="70.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/left.png" />
+               </image>
+            </ImageView>
+            <HBox alignment="CENTER" layoutX="208.0" layoutY="38.0" maxHeight="-Infinity" prefHeight="36.0" prefWidth="309.0" styleClass="search-container" stylesheets="@Style.css">
+               <children>
+                  <ImageView fitHeight="250.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Pictures/search.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="searchfield" prefHeight="37.0" prefWidth="289.0" promptText="Artists , songs , or podcasts" styleClass="search-container" stylesheets="@Style.css">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <Button fx:id="search" layoutX="531.0" layoutY="41.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="71.0" styleClass="upgrade-button" stylesheets="@Style.css" text="Search" textFill="WHITE" />
+            <ImageView fitHeight="39.0" fitWidth="40.0" layoutX="801.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/user.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="profile" layoutX="863.0" layoutY="43.0" prefHeight="23.0" prefWidth="116.0" text="Your Profile" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.7880886426592798" centerY="1.0" focusDistance="-1.0" radius="0.7687861271676301">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <HBox alignment="TOP_RIGHT" layoutX="34.0" layoutY="15.0" prefHeight="74.0" prefWidth="165.0" />
+         </children>
+      </Pane>
+      <Text fill="WHITE" layoutX="281.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" wrappingWidth="226.0004846871692">
+         <font>
+            <Font name="Hiragino Sans W8" size="36.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="292.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top 5">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="286.0" layoutY="558.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Suggestion">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="24.0" />
+         </font>
+      </Text>
+      <ScrollBar layoutX="261.0" layoutY="823.0" prefHeight="16.0" prefWidth="1038.0" style="-fx-background-color: #808080;" />
+      <ScrollBar layoutX="259.0" layoutY="506.0" prefHeight="16.0" prefWidth="1044.0" style="-fx-background-color: #808080;" />
+      <Button fx:id="Taylor" layoutX="268.0" layoutY="271.0" mnemonicParsing="false" prefHeight="185.0" prefWidth="176.0" style="-fx-background-color: tempertannt;">
+         <graphic>
+            <ImageView fitHeight="176.0" fitWidth="197.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/SmartSelect_20230603_012833_Samsung%20Music.jpg" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="320.0" layoutY="447.0" prefHeight="39.0" prefWidth="84.0" text="Taylor Swift" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="325.0" layoutY="464.0" prefHeight="39.0" prefWidth="84.0" text="Gold Rush" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="565.0" layoutY="447.0" prefHeight="39.0" prefWidth="84.0" text="Weeknd" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="553.0" layoutY="464.0" prefHeight="39.0" prefWidth="84.0" text="After Hours" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="Weeknd" layoutX="493.0" layoutY="272.0" mnemonicParsing="false" prefHeight="187.0" prefWidth="200.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="182.0" fitWidth="184.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/SmartSelect_20230603_012952_Samsung%20Music.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="706.0" layoutY="267.0" mnemonicParsing="false" prefHeight="192.0" prefWidth="178.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="177.0" fitWidth="166.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/SmartSelect_20230603_013322_Samsung%20Music.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="753.0" layoutY="448.0" prefHeight="39.0" prefWidth="92.0" text="Neighborhood" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="765.0" layoutY="464.0" prefHeight="39.0" prefWidth="84.0" text="Softcore" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="893.0" layoutY="273.0" mnemonicParsing="false" prefHeight="186.0" prefWidth="210.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="173.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/SmartSelect_20230603_014633_Google.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="968.0" layoutY="447.0" prefHeight="39.0" prefWidth="92.0" text="Dua lipa" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="971.0" layoutY="467.0" prefHeight="39.0" prefWidth="84.0" text="Levitate" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="1100.0" layoutY="273.0" mnemonicParsing="false" prefHeight="186.0" prefWidth="210.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="173.0" fitWidth="179.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/SmartSelect_20230603_013158_Samsung%20Music.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="1171.0" layoutY="447.0" prefHeight="39.0" prefWidth="92.0" text="Harry Styles" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="1186.0" layoutY="466.0" prefHeight="39.0" prefWidth="84.0" text="Golden" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="558.0" layoutY="768.0" prefHeight="39.0" prefWidth="84.0" text="Wallows" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="530.0" layoutY="787.0" prefHeight="39.0" prefWidth="131.0" text="Are you Board Yet?" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="july" layoutX="688.0" layoutY="561.0" mnemonicParsing="false" prefHeight="230.0" prefWidth="215.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="180.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/SmartSelect_20230603_112835_Samsung%20Music.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="751.0" layoutY="768.0" prefHeight="39.0" prefWidth="103.0" text="Sufjan Stevens" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="764.0" layoutY="787.0" prefHeight="39.0" prefWidth="99.0" text="4th Of July" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="958.0" layoutY="768.0" prefHeight="39.0" prefWidth="103.0" text="Lana Delray" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="975.0" layoutY="787.0" prefHeight="39.0" prefWidth="46.0" text="A &amp; W" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="1115.0" layoutY="549.0" mnemonicParsing="false" prefHeight="247.0" prefWidth="184.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="183.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/SmartSelect_20230603_012908_Samsung%20Music.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="1168.0" layoutY="768.0" prefHeight="39.0" prefWidth="103.0" text="Marshmello" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="1181.0" layoutY="787.0" prefHeight="39.0" prefWidth="99.0" text="Summer" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Button layoutX="911.0" layoutY="572.0" mnemonicParsing="false" prefHeight="203.0" prefWidth="185.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="171.0" fitWidth="170.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/SmartSelect_20230603_013038_Samsung%20Music.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="Tom" layoutX="266.0" layoutY="565.0" mnemonicParsing="false" prefHeight="230.0" prefWidth="215.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="180.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/SmartSelect_20230603_115913_Samsung%20Music.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="499.0" layoutY="586.0" mnemonicParsing="false" prefHeight="186.0" prefWidth="178.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="180.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/SmartSelect_20230603_013551_Samsung%20Music.jpg" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="338.0" layoutY="768.0" prefHeight="39.0" prefWidth="103.0" text="Tom Odell" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="330.0" layoutY="787.0" prefHeight="39.0" prefWidth="99.0" text="Another Love" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="13.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

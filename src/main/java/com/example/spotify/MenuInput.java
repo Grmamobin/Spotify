@@ -1,4 +1,4 @@
-package com.example.spotify.Front_end;
+package com.example.spotify;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
