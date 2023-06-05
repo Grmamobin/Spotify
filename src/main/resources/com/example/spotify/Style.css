@@ -9,3 +9,20 @@
   -fx-border-radius: 50px;
 }
 
+.over: hover{
+  -fx-background-color: #9DC183;
+}
+.button.btnCliente {
+   -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #00DDFF 0%,#FF00D4  100%);
+}
+.button.btnClienteTwo {
+   -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #00A1FF 0%, #00FF8F 100%);
+}
+.button.btnClienteThree {
+   -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #F9ED32 0%,  #EF4136 100%);
+}
+.textField {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #C4ECFB 0%, #86C5FC 100%);
+}
+
+

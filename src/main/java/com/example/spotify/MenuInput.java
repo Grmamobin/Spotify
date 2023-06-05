@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -15,9 +16,18 @@ public class MenuInput {
     private Parent root;
     private Scene scene;
     private Stage stage = new Stage();
+    @FXML
+    Button login;
+    @FXML
+    Button signup;
 
     @FXML
     void login(ActionEvent event) throws IOException {
+        // Get a reference to the current stage
+        Stage currentStage = (Stage) login.getScene().getWindow();
+
+        // Close the current stage
+        currentStage.close();
 
         root = FXMLLoader.load(getClass().getResource("login.fxml"));
         //stage.setMaximized(true);
@@ -28,6 +38,11 @@ public class MenuInput {
 
     @FXML
     void signup(ActionEvent event) throws IOException {
+        // Get a reference to the current stage
+        Stage currentStage = (Stage) signup.getScene().getWindow();
+
+        // Close the current stage
+        currentStage.close();
 
         root = FXMLLoader.load(getClass().getResource("signUp.fxml"));
         stage.setScene(new Scene(root));

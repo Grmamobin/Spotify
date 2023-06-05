@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.profile">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="202.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Pictures/profile.png" />
+         </image></ImageView>
+      <Button fx:id="addPic" layoutX="317.0" layoutY="165.0" mnemonicParsing="false" onAction="#addPic" prefHeight="26.0" prefWidth="50.0" style="-fx-background-color: transparent;" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/add%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="save" layoutX="487.0" layoutY="30.0" mnemonicParsing="false" onAction="#save" prefHeight="26.0" prefWidth="50.0" styleClass="upgrade-button" stylesheets="@Style.css" text="save" textFill="WHITE" />
+      <Button fx:id="backPage" layoutX="29.0" layoutY="23.0" mnemonicParsing="false" onAction="#backPage" prefHeight="35.0" prefWidth="35.0" style="-fx-background-color: trensparent;">
+         <graphic>
+            <ImageView fitHeight="46.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/left.png" />
+               </image></ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="233.0" layoutY="218.0" prefHeight="17.0" prefWidth="40.0" text="Id :" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="233.0" layoutY="247.0" prefHeight="17.0" prefWidth="50.0" text="Name :" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="233.0" layoutY="277.0" prefHeight="19.0" prefWidth="71.0" text="Password :" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="233.0" layoutY="306.0" prefHeight="19.0" prefWidth="50.0" text="Email :" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="233.0" layoutY="334.0" prefHeight="19.0" prefWidth="95.0" text="Date of Birth :" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label layoutX="272.0" layoutY="218.0" prefHeight="17.0" prefWidth="241.0" text="\@moodygr" textFill="WHITE" />
+      <Label layoutX="290.0" layoutY="247.0" prefHeight="17.0" prefWidth="256.0" text="mobina" textFill="WHITE" />
+      <Label layoutX="312.0" layoutY="277.0" prefHeight="17.0" prefWidth="204.0" text="123456" textFill="WHITE" />
+      <Label layoutX="287.0" layoutY="306.0" prefHeight="17.0" prefWidth="275.0" text="\@maxpol430@gmail.com" textFill="WHITE" />
+      <Label layoutX="327.0" layoutY="334.0" prefHeight="17.0" prefWidth="229.0" text="2004-01-09" textFill="WHITE" />
+   </children>
+</AnchorPane>

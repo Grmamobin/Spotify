@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="171.0" prefWidth="307.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.ArtistPic">
+   <children>
+      <ImageView fx:id="imageArtist" fitHeight="173.0" fitWidth="159.0" layoutX="-5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Pictures/SmartSelect_20230604_155923_Samsung Internet.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="27.0" fitWidth="24.0" layoutX="165.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Pictures/twitter.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="ArtistName" layoutX="185.0" layoutY="13.0" prefHeight="17.0" prefWidth="104.0" text="Shawn Mendes" textFill="WHITE">
+         <font>
+            <Font name="Apple Chancery" size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="27.0" fitWidth="24.0" layoutX="165.0" layoutY="126.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Pictures/instagram.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="twitter" layoutX="197.0" layoutY="97.0" prefHeight="17.0" prefWidth="104.0" text="\@ShawnMendes" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="instagram" layoutX="196.0" layoutY="131.0" prefHeight="17.0" prefWidth="104.0" text="\@shawnmendes" textFill="WHITE">
+         <font>
+            <Font name="Arial" size="10.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="13.0" fitWidth="13.0" layoutX="171.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Pictures/correct.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="195.0" layoutY="51.0" prefHeight="12.0" prefWidth="30.0" text="Genre :" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="8.0" />
+         </font>
+      </Label>
+      <Label fx:id="genre" layoutX="227.0" layoutY="51.0" prefHeight="12.0" prefWidth="74.0" text="POP" textFill="WHITE">
+         <font>
+            <Font name="Arial Bold" size="8.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>

@@ -82,7 +82,7 @@
             </Lighting>
          </effect>
       </PasswordField>
-      <Button layoutX="250.0" layoutY="323.0" mnemonicParsing="false" onAction="#signUp" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #3DB489;" text="Sign up" textFill="WHITE" />
+      <Button fx:id="signUp" layoutX="250.0" layoutY="323.0" mnemonicParsing="false" onAction="#signUp" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #3DB489;" text="Sign up" textFill="WHITE" />
       <ImageView fitHeight="23.0" fitWidth="29.0" layoutX="541.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Pictures/hidden.png" />

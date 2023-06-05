@@ -6,46 +6,45 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
-import com.example.spotify.DataBase.User;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class login {
+public class profile {
 
     @FXML
-    private ImageView hidden;
+    private Button addPic;
 
     @FXML
-    private Button login;
+    private Button backPage;
 
     @FXML
-    private PasswordField password;
-
-    @FXML
-    private TextField username;
+    private Button save;
     private Parent root;
     private Scene scene;
     private Stage stage = new Stage();
 
+    @FXML
+    void addPic(ActionEvent event) {
+
+    }
 
     @FXML
-    void login(ActionEvent event) throws IOException {
-        // Get a reference to the current stage
-        Stage currentStage = (Stage) login.getScene().getWindow();
+    void backPage(ActionEvent event) throws IOException {
+        Stage currentStage = (Stage) backPage.getScene().getWindow();
 
         // Close the current stage
         currentStage.close();
-
-       /* User recentUser = new User(username.getText(),"",password.getText());*/
         root = FXMLLoader.load(getClass().getResource("page.fxml"));
         stage.setScene(new Scene(root));
         stage.show();
 
+
     }
 
+    @FXML
+    void save(ActionEvent event) {
+
+    }
 
 }

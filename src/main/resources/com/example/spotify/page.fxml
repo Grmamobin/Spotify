@@ -34,7 +34,7 @@
                   <Image url="@Pictures/loupe%20(1).png" />
                </image>
             </ImageView>
-            <Label layoutX="98.0" layoutY="183.0" prefHeight="23.0" prefWidth="60.0" text="Search" wrapText="true">
+            <Label layoutX="98.0" layoutY="183.0" prefHeight="23.0" prefWidth="60.0" styleClass="over" stylesheets="@Style.css" text="Search" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -55,7 +55,7 @@
                   </RadialGradient>
                </textFill>
             </Label>
-            <Label fx:id="Home" layoutX="97.0" layoutY="132.0" prefHeight="23.0" prefWidth="60.0" text="Home" wrapText="true">
+            <Label fx:id="Home" layoutX="97.0" layoutY="132.0" prefHeight="23.0" prefWidth="60.0" styleClass="over" stylesheets="@Style.css" text="Home" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -76,12 +76,7 @@
                   </RadialGradient>
                </textFill>
             </Label>
-            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="38.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Pictures/music.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="Library" layoutX="100.0" layoutY="232.0" prefHeight="23.0" prefWidth="109.0" text="Your Library" wrapText="true">
+            <Label fx:id="Library" layoutX="100.0" layoutY="232.0" prefHeight="23.0" prefWidth="109.0" styleClass="over" stylesheets="@Style.css" text="Genre" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -107,7 +102,7 @@
                   <Image url="@Pictures/add%20(1).png" />
                </image>
             </ImageView>
-            <Label fx:id="createPlayList" layoutX="72.0" layoutY="474.0" prefHeight="23.0" prefWidth="119.0" text=" Create Playlist" wrapText="true">
+            <Label fx:id="createPlayList" layoutX="72.0" layoutY="474.0" prefHeight="23.0" prefWidth="119.0" styleClass="over" stylesheets="@Style.css" text=" Create Playlist" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -133,7 +128,7 @@
                   <Image url="@Pictures/rating.png" />
                </image>
             </ImageView>
-            <Label fx:id="LikedSongs" layoutX="87.0" layoutY="596.0" prefHeight="23.0" prefWidth="119.0" text="Liked Songs" wrapText="true">
+            <Label fx:id="LikedSongs" layoutX="87.0" layoutY="596.0" prefHeight="23.0" prefWidth="119.0" styleClass="over" stylesheets="@Style.css" text="Liked Songs" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -159,7 +154,7 @@
                   <Image url="@Pictures/guitar.png" />
                </image>
             </ImageView>
-            <Label fx:id="Artists" layoutX="85.0" layoutY="658.0" prefHeight="23.0" prefWidth="119.0" text="Artists" wrapText="true">
+            <Label layoutX="85.0" layoutY="658.0" prefHeight="23.0" prefWidth="119.0" styleClass="over" stylesheets="@Style.css" text="Artists" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -185,7 +180,7 @@
                   <Image url="@Pictures/playlist.png" />
                </image>
             </ImageView>
-            <Label fx:id="playLists" layoutX="81.0" layoutY="528.0" prefHeight="23.0" prefWidth="119.0" text=" Playlists" wrapText="true">
+            <Label fx:id="playLists" layoutX="81.0" layoutY="528.0" prefHeight="23.0" prefWidth="119.0" styleClass="over" stylesheets="@Style.css" text=" Playlists" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -206,6 +201,16 @@
                   </RadialGradient>
                </textFill>
             </Label>
+            <Button fx:id="Artists" layoutX="24.0" layoutY="632.0" mnemonicParsing="false" onAction="#Artists" prefHeight="47.0" prefWidth="53.0" style="-fx-background-color: transparent;" />
+            <Button fx:id="genre" layoutX="37.0" layoutY="221.0" mnemonicParsing="false" onAction="#genre" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Pictures/music.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
       </Pane>
       <Pane layoutX="248.0" layoutY="-5.0" prefHeight="86.0" prefWidth="1069.0">
@@ -242,7 +247,7 @@
                   <Image url="@Pictures/user.png" />
                </image>
             </ImageView>
-            <Label fx:id="profile" layoutX="863.0" layoutY="43.0" prefHeight="23.0" prefWidth="116.0" text="Your Profile" wrapText="true">
+            <Label layoutX="846.0" layoutY="40.0" prefHeight="29.0" prefWidth="98.0" styleClass="over" stylesheets="@Style.css" text="Your Profile" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -264,6 +269,7 @@
                </textFill>
             </Label>
             <HBox alignment="TOP_RIGHT" layoutX="34.0" layoutY="15.0" prefHeight="74.0" prefWidth="165.0" />
+            <Button fx:id="profile" layoutX="798.0" layoutY="35.0" mnemonicParsing="false" onAction="#ProfileClick" prefHeight="29.0" prefWidth="40.0" style="-fx-background-color: transparent;" />
          </children>
       </Pane>
       <Text fill="WHITE" layoutX="281.0" layoutY="145.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Home" wrappingWidth="226.0004846871692">

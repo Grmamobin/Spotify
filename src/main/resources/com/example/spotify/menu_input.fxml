@@ -11,8 +11,8 @@
     
       <Label layoutX="220.0" layoutY="179.0" prefHeight="26.0" prefWidth="171.0" text="Millions  of  songs." textFill="WHITE" />
       <Label layoutX="228.0" layoutY="205.0" prefHeight="17.0" prefWidth="113.0" text="Free  on  Spotify." textFill="WHITE" />
-      <Button defaultButton="true" layoutX="136.0" layoutY="253.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="297.0" style="-fx-background-color: #4FC978;" text="Sign up free" />
-      <Button layoutX="220.0" layoutY="305.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: #4FC978;" text="Log in" />
+      <Button fx:id="signup" defaultButton="true" layoutX="136.0" layoutY="253.0" mnemonicParsing="false" onAction="#signup" prefHeight="26.0" prefWidth="297.0" style="-fx-background-color: #4FC978;" text="Sign up free" />
+      <Button fx:id="login" layoutX="220.0" layoutY="305.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: #4FC978;" text="Log in" />
       <ImageView fitHeight="131.0" fitWidth="363.0" layoutX="136.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Pictures/spotify.png" />

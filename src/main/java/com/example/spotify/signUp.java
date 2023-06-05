@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -23,6 +24,8 @@ public class signUp {
     @FXML
     private TextField username;
     @FXML
+    private Button signUp;
+    @FXML
     void email(ActionEvent event) {
 
     }
@@ -41,6 +44,11 @@ public class signUp {
 
     @FXML
     void signUp(ActionEvent event) throws IOException {
+        // Get a reference to the current stage
+        Stage currentStage = (Stage) signUp.getScene().getWindow();
+
+        // Close the current stage
+        currentStage.close();
         root = FXMLLoader.load(getClass().getResource("page.fxml"));
         stage.setScene(new Scene(root));
         stage.show();
