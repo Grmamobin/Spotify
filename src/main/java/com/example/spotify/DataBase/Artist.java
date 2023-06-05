@@ -2,6 +2,7 @@ package com.example.spotify.DataBase;
 
 import java.util.List;
 import java.util.UUID;
+import java.util.ArrayList;
 
 public class Artist {
 
@@ -15,6 +16,7 @@ public class Artist {
     private List<String> socialMediaLinks;
     private List<Album> albums;
     private List<Music> tracks;
+
 
     // getters and setters
 

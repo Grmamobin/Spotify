@@ -1,25 +1,39 @@
 package com.example.spotify.DataBase;
 
 import java.time.LocalDate;
+import java.time. Duration;
+import java.util.UUID;
 
 public class Music {
 
-    private int trackID;
+    private UUID trackID;
     private String title;
     private Artist artist;
     private Album album;
     private Genre genre;
-    private Double duration;
+    private Duration duration;
     private LocalDate releaseDate;
     private int popularity;
 
+    // constructor
+    public Music(UUID trackID, String title, Artist artist, Album album, Genre genre, Duration duration, LocalDate releaseDate, int popularity) {
+        this.trackID = trackID;
+        this.title = title;
+        this.artist = artist;
+        this.album = album;
+        this.genre = genre;
+        this.duration = duration;
+        this.releaseDate = releaseDate;
+        this.popularity = popularity;
+    }
+
     // getters and setters
 
-    public int getTrackID() {
+    public UUID getTrackID() {
         return trackID;
     }
 
-    public void setTrackID(int trackID) {
+    public void setTrackID(UUID trackID) {
         this.trackID = trackID;
     }
 
@@ -55,11 +69,11 @@ public class Music {
         this.genre = genre;
     }
 
-    public Double getDuration() {
+    public Duration getDuration() {
         return duration;
     }
 
-    public void setDuration(Double duration) {
+    public void setDuration(Duration duration) {
         this.duration = duration;
     }
 
