@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="412.0" prefWidth="877.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.playList">
+   <children>
+      <Label layoutX="43.0" layoutY="14.0" prefHeight="38.0" prefWidth="227.0" text="Private PlayList">
+         <font>
+            <Font size="31.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.8135391923990498" cycleMethod="REFLECT" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color green="0.800000011920929" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <GridPane layoutX="7.0" layoutY="63.0" prefHeight="339.0" prefWidth="300.0">
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+         <children>
+            <ScrollPane prefHeight="339.0" prefWidth="294.0" style="-fx-background-color: #181818;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="342.0" prefWidth="285.0" style="-fx-background-color: #181818;" />
+              </content>
+            </ScrollPane>
+         </children>
+      </GridPane>
+      <Label layoutX="336.0" layoutY="14.0" prefHeight="38.0" prefWidth="227.0" stylesheets="@Style.css" text="Public PlayList">
+         <font>
+            <Font size="31.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.8135391923990498" cycleMethod="REFLECT" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color green="0.800000011920929" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <GridPane layoutX="300.0" layoutY="63.0" prefHeight="339.0" prefWidth="300.0">
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+         <children>
+            <ScrollPane prefHeight="339.0" prefWidth="294.0" style="-fx-background-color: #181818;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="342.0" prefWidth="285.0" style="-fx-background-color: #181818;" />
+               </content>
+            </ScrollPane>
+         </children>
+      </GridPane>
+      <Label layoutX="617.0" layoutY="14.0" prefHeight="38.0" prefWidth="227.0" stylesheets="@Style.css" text="Others  PlayList">
+         <font>
+            <Font size="31.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5" centerY="0.8135391923990498" cycleMethod="REFLECT" radius="0.5">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color green="0.800000011920929" blue="1.0" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <GridPane layoutX="592.0" layoutY="64.0" prefHeight="339.0" prefWidth="300.0">
+         <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+         <children>
+            <ScrollPane prefHeight="339.0" prefWidth="294.0" style="-fx-background-color: #181818;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="342.0" prefWidth="285.0" style="-fx-background-color: #181818;" />
+               </content>
+            </ScrollPane>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

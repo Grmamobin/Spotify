@@ -24,5 +24,7 @@
 .textField {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #C4ECFB 0%, #86C5FC 100%);
 }
-
+.Label {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #C4ECFB 0%, #86C5FC 100%);
+}
 
