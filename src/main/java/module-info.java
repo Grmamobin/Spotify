@@ -2,6 +2,7 @@ module com.example.spotify {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires org.json;
 
 
     opens com.example.spotify to javafx.fxml;

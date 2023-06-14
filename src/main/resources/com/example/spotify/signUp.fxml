@@ -36,7 +36,7 @@
          </font>
       </Label>
       <Label layoutX="257.0" layoutY="183.0" />
-      <TextField fx:id="username" layoutX="340.0" layoutY="135.0" onAction="#username" prefHeight="26.0" prefWidth="196.0" promptText="username">
+      <TextField fx:id="username" layoutX="340.0" layoutY="135.0"  prefHeight="26.0" prefWidth="196.0" promptText="username">
          <effect>
             <Lighting>
                <bumpInput>

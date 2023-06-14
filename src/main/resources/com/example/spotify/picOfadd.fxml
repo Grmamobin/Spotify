@@ -15,6 +15,6 @@
       </ImageView>
       <Label layoutX="59.0" layoutY="20.0" prefHeight="17.0" prefWidth="143.0" text="name of your playlist" textFill="WHITE" />
       <Button fx:id="click" layoutX="218.0" layoutY="15.0" mnemonicParsing="false" onAction="#click" prefHeight="17.0" prefWidth="53.0" styleClass="upgrade-button" stylesheets="@Style.css" text="Click" textFill="WHITE" />
-      <Button layoutX="188.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="❤︎" />
+      <Button layoutX="188.0" layoutY="16.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
    </children>
 </AnchorPane>

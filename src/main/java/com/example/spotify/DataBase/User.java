@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class User {
 
-    private UUID userID;
+    private String userID;
     private String username;
     private String emailAddress;
     private String password;
@@ -15,7 +15,7 @@ public class User {
     private List<Playlist> playlistsLiked;
 
     // constructor
-    public User(UUID userID, String username, String emailAddress, String password, String profilePicture) {
+    public User(String username, String emailAddress, String password) {
         this.userID = userID;
         this.username = username;
         this.emailAddress = emailAddress;
@@ -28,11 +28,11 @@ public class User {
 
     // getters and setters
 
-    public UUID getUserID() {
+    public String getUserID() {
         return userID;
     }
 
-    public void setUserID(UUID userID) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
 
