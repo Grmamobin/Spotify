@@ -24,12 +24,12 @@
             </ImageView>
          </children></Pane>
       <Button fx:id="login" layoutX="235.0" layoutY="325.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="316.0" style="-fx-background-color: #3DB489;" text="Login" textFill="WHITE" />
-      <Text fill="#02400b" layoutX="227.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" textAlignment="RIGHT">
+      <Text fill="#02400b" layoutX="239.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserId" textAlignment="RIGHT">
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font>
       </Text>
-      <TextField fx:id="username" layoutX="300.0" layoutY="117.0" prefHeight="26.0" prefWidth="231.0" promptText="username">
+      <TextField fx:id="userId" layoutX="300.0" layoutY="117.0" prefHeight="26.0" prefWidth="231.0" promptText="userId">
          <font>
             <Font size="12.0" />
          </font>

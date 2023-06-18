@@ -13,6 +13,7 @@ import com.example.spotify.DataBase.User;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class login {
 
@@ -26,14 +27,18 @@ public class login {
     private PasswordField password;
 
     @FXML
-    private TextField username;
+    private TextField userId;
     private Parent root;
     private Scene scene;
     private Stage stage = new Stage();
 
 
     @FXML
-    void login(ActionEvent event) throws IOException {
+    void login(ActionEvent event)  throws IOException, SQLException {
+
+        User user = new User(userId.getText(),password.getText());
+
+        //if (user.)
         // Get a reference to the current stage
         Stage currentStage = (Stage) login.getScene().getWindow();
 

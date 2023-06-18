@@ -8,7 +8,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.Node;
-
+import java.util.Scanner;
+import java.net.Socket;
 import java.io.IOException;
 import java.util.Objects;
 

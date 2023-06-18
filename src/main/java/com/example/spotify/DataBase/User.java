@@ -15,7 +15,16 @@ public class User {
     private List<Playlist> playlistsLiked;
 
     // constructor
-    public User(String username, String emailAddress, String password) {
+    public User(String userID, String password, String emailAddress) {
+        this.userID = userID;
+        this.username = username;
+        this.emailAddress = emailAddress;
+        this.password = password;
+        this.profilePicture = profilePicture;
+        this.playlistsCreated = new ArrayList<>();
+        this.playlistsLiked = new ArrayList<>();
+    }
+    public User(String userID, String password) {
         this.userID = userID;
         this.username = username;
         this.emailAddress = emailAddress;

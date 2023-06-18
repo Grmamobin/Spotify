@@ -3,6 +3,7 @@ module com.example.spotify {
     requires javafx.fxml;
     requires java.sql;
     requires org.json;
+    requires com.google.gson;
 
 
     opens com.example.spotify to javafx.fxml;

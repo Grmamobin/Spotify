@@ -28,7 +28,7 @@ public class signUp {
     @FXML
     private PasswordField password;
     @FXML
-    private TextField username;
+    private TextField userId;
     @FXML
     private Button signUp;
 
@@ -60,7 +60,7 @@ public class signUp {
     @FXML
     void signUp(ActionEvent event) throws IOException, SQLException {
 
-        User user = new User(username.getText(),password.getText(),email.getText());
+        User user = new User(userId.getText(),password.getText(),email.getText());
         RandomUserIDGenerator(user);
         Connection conn = DatabaseConnection.connectPlz();
         PreparedStatement stmt = conn.prepareStatement("INSERT INTO users(userID, username, password, emailAddress) VALUES (?,?,?,?)");
@@ -88,14 +88,10 @@ public class signUp {
 
     }
     public void RandomUserIDGenerator(User user) {
-        int maxRandomNumber = 10000;
 
-        Random random = new Random();
-        int randomNumber = random.nextInt(maxRandomNumber);
-
-        String userID = "@"+user.getUsername() + randomNumber;
-        user.setUserID(userID);
-
+        UUID uuid = UUID.randomUUID();
+        String userName = "@" + user.getUsername() + uuid.toString().replace("-", "").substring(0, 8);
+        user.setUsername(userName);
 
     }
 
