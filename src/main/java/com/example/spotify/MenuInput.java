@@ -24,6 +24,7 @@ public class MenuInput {
 
     @FXML
     void login(ActionEvent event) throws IOException {
+
         // Get a reference to the current stage
         Stage currentStage = (Stage) login.getScene().getWindow();
 

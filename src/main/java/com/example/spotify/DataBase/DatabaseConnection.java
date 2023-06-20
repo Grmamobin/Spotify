@@ -16,7 +16,6 @@ public class DatabaseConnection {
             Connection conn = null;
             try {
                 Connection connection = DriverManager.getConnection(url);
-                System.out.println("dog");
                 return connection;
             } catch (SQLException e) {
                 System.out.println(e.getMessage());

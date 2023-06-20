@@ -2,7 +2,6 @@ package com.example.spotify.DataBase;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.ArrayList;
 
 public class Artist {
 
@@ -98,5 +97,9 @@ public class Artist {
 
     public void setTwitter(String twitter) {
         this.twitter = twitter;
+    }
+    public static void queryArtist(){
+        String query = "SELECT * FROM Artist WHERE name = ?";
+
     }
 }

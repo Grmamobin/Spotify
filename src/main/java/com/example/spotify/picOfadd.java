@@ -14,6 +14,7 @@ public class picOfadd {
     @FXML
     void click(ActionEvent event) {
 
+
     }
     void setSecondData(Playlist playlist){
 

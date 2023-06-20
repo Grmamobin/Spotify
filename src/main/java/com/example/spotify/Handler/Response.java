@@ -5,24 +5,26 @@ import java.io.OutputStream;
 import org.json.JSONObject;
 import java.io.IOException;
 public class Response {
-    public static void signupRS(Socket serverSocket, Boolean flag){
+    //RS in code is related to response option
+    public static void signupRS(Socket serverSocket , boolean problem){
         PrintWriter out = null;
         try {
-            //Connecting to output stream
+            //Output stream for connecting
             OutputStream outputStream = serverSocket.getOutputStream();
             out = new PrintWriter(outputStream);
 
-            //Json
+            //Json Response
             JSONObject jsonResponse = new JSONObject();
-            jsonResponse.put("Type", "signup");
-            if (!flag){
-                jsonResponse.put("response", "signup is done successfully");
+            jsonResponse.put("TypeRS", "signUp");
+
+            if (!problem){
+                jsonResponse.put("response", "signup successfully!");
             } else {
-                jsonResponse.put("response", "this userId is already exist");
+                jsonResponse.put("response", "userID already exist");
             }
 
-            //Sending json object over socket
-            System.out.println("SENDING: " + jsonResponse);
+            //Sending json with socket
+            System.out.println("Sending: " + jsonResponse);
             out.println(jsonResponse);
             out.flush();
         }
@@ -30,4 +32,31 @@ public class Response {
             io.printStackTrace();
         }
     }
+    public static void loginRS(Socket serverSocket , boolean problem){
+        PrintWriter out = null;
+        try {
+            //Output stream for connecting
+            OutputStream outputStream = serverSocket.getOutputStream();
+            out = new PrintWriter(outputStream);
+
+            //Json Response
+            JSONObject jsonResponse = new JSONObject();
+            jsonResponse.put("TypeRS", "login");
+
+            if (!problem){
+                jsonResponse.put("response", "login successfully!");
+            } else {
+                jsonResponse.put("response", "userID is wrong");
+            }
+
+            //Sending json with socket
+            System.out.println("Sending: " + jsonResponse);
+            out.println(jsonResponse);
+            out.flush();
+        }
+        catch (IOException io){
+            io.printStackTrace();
+        }
+    }
+
 }

@@ -6,17 +6,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import java.sql.PreparedStatement;
 import com.example.spotify.DataBase.User;
-import java.util.Random;
-import java.sql.Connection;
 
+import java.net.Socket;
+import java.sql.Connection;
+import com.google.gson.JsonObject;
+import com.example.spotify.Handler.Request;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.UUID;
+import com.google.gson.Gson;
+import java.util.Scanner;
 
 public class signUp {
     public static Connection conn;
@@ -31,15 +34,7 @@ public class signUp {
     private TextField userId;
     @FXML
     private Button signUp;
-
-    static {
-        try {
-            conn = DatabaseConnection.connectPlz();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
+    private Scanner in;
     @FXML
     void email(ActionEvent event) {
 
@@ -58,42 +53,40 @@ public class signUp {
     }
 
     @FXML
-    void signUp(ActionEvent event) throws IOException, SQLException {
+    void signUp(ActionEvent event) throws IOException {
 
         User user = new User(userId.getText(),password.getText(),email.getText());
-        RandomUserIDGenerator(user);
-        Connection conn = DatabaseConnection.connectPlz();
-        PreparedStatement stmt = conn.prepareStatement("INSERT INTO users(userID, username, password, emailAddress) VALUES (?,?,?,?)");
-        //DatabaseConnection database= new DatabaseConnection();
 
-        stmt.setString(1, user.getUserID());
-        stmt.setString(2, user.getUsername());
-        stmt.setString(3, user.getPassword());
-        stmt.setString(4, user.getEmailAddress());
-        try {
-            stmt.executeUpdate();
-        } catch (SQLException e) {
-            System.err.println("Error executing SQL query: " + e.getMessage());
+        //send via json
+        JsonObject jsonRequest = new JsonObject();
+        jsonRequest.addProperty("TypeRE", "signUp");
+        jsonRequest.addProperty("userID", user.getUserID());
+        jsonRequest.addProperty("password", user.getPassword());
+        jsonRequest.addProperty("emailAddress", user.getEmailAddress());
+
+        in = new Scanner(HelloApplication.use().getInputStream());
+        Request.signUpRE(HelloApplication.use(), jsonRequest);
+
+        String response = in.nextLine();
+        JsonObject jsonResponse = new Gson().fromJson(response, JsonObject.class);
+        String result = jsonResponse.get("response").getAsString();
+
+        if(result.equals("signup successfully!")) {
+
+            // Get a reference to the current stage
+            Stage currentStage = (Stage) signUp.getScene().getWindow();
+            // Close the current stage
+            currentStage.close();
+            root = FXMLLoader.load(getClass().getResource("page.fxml"));
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } else{
+            // if have time add label that shows
         }
 
-        // Get a reference to the current stage
-        Stage currentStage = (Stage) signUp.getScene().getWindow();
-
-        // Close the current stage
-        currentStage.close();
-
-        root = FXMLLoader.load(getClass().getResource("page.fxml"));
-        stage.setScene(new Scene(root));
-        stage.show();
-
     }
-    public void RandomUserIDGenerator(User user) {
 
-        UUID uuid = UUID.randomUUID();
-        String userName = "@" + user.getUsername() + uuid.toString().replace("-", "").substring(0, 8);
-        user.setUsername(userName);
-
-    }
 
 
 
