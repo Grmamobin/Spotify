@@ -30,13 +30,13 @@
             <Font size="41.0" />
          </font>
       </Text>
-      <Label layoutX="237.0" layoutY="139.0" text="Username" textFill="#00361c">
+      <Label layoutX="235.0" layoutY="122.0" text="Username" textFill="#00361c">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
       <Label layoutX="257.0" layoutY="183.0" />
-      <TextField fx:id="userId" layoutX="340.0" layoutY="135.0" prefHeight="26.0" prefWidth="196.0" promptText="userId">
+      <TextField fx:id="userId" layoutX="338.0" layoutY="118.0" prefHeight="26.0" prefWidth="196.0" promptText="userId">
          <effect>
             <Lighting>
                <bumpInput>
@@ -48,7 +48,7 @@
             </Lighting>
          </effect>
       </TextField>
-      <TextField fx:id="email" layoutX="340.0" layoutY="221.0" onAction="#email" prefHeight="26.0" prefWidth="196.0" promptText="email">
+      <TextField fx:id="email" layoutX="338.0" layoutY="204.0" onAction="#email" prefHeight="26.0" prefWidth="196.0" promptText="email">
          <effect>
             <Lighting>
                <bumpInput>
@@ -60,17 +60,17 @@
             </Lighting>
          </effect>
       </TextField>
-      <Label layoutX="237.0" layoutY="182.0" text="Password" textFill="#00361c">
+      <Label layoutX="235.0" layoutY="165.0" text="Password" textFill="#00361c">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="231.0" layoutY="225.0" text="Email address" textFill="#00361c">
+      <Label layoutX="229.0" layoutY="208.0" text="Email address" textFill="#00361c">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <PasswordField fx:id="password" layoutX="341.0" layoutY="179.0" onAction="#password" prefHeight="26.0" prefWidth="196.0" promptText="*****">
+      <PasswordField fx:id="password" layoutX="339.0" layoutY="162.0" onAction="#password" prefHeight="26.0" prefWidth="196.0" promptText="*****">
          <effect>
             <Lighting>
                <bumpInput>
@@ -82,12 +82,13 @@
             </Lighting>
          </effect>
       </PasswordField>
-      <Button fx:id="signUp" layoutX="250.0" layoutY="323.0" mnemonicParsing="false" onAction="#signUp" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #3DB489;" text="Sign up" textFill="WHITE" />
-      <ImageView fitHeight="23.0" fitWidth="29.0" layoutX="541.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <Button fx:id="signUp" layoutX="248.0" layoutY="338.0" mnemonicParsing="false" onAction="#signUp" prefHeight="26.0" prefWidth="303.0" style="-fx-background-color: #3DB489;" text="Sign up" textFill="WHITE" />
+      <ImageView fitHeight="23.0" fitWidth="29.0" layoutX="539.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Pictures/hidden.png" />
          </image>
       </ImageView>
-      <Button layoutX="293.0" layoutY="289.0" mnemonicParsing="false" onAction="#hadAccount" prefHeight="3.0" prefWidth="178.0" style="-fx-background-color: #808080;" text="had an account?" textFill="#4d1708" textOverrun="WORD_ELLIPSIS" />
+      <Button layoutX="291.0" layoutY="304.0" mnemonicParsing="false" onAction="#hadAccount" prefHeight="3.0" prefWidth="178.0" style="-fx-background-color: #808080;" text="had an account?" textFill="#4d1708" textOverrun="WORD_ELLIPSIS" />
+      <Label fx:id="error" layoutX="310.0" layoutY="266.0" prefHeight="17.0" prefWidth="252.0" textAlignment="CENTER" />
    </children>
 </AnchorPane>

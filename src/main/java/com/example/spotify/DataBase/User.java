@@ -12,10 +12,10 @@ import java.sql.ResultSet;
 
 public class User {
 
-    private String userID;
-    private String username;
-    private String emailAddress;
-    private String password;
+    private static String userID;
+    private static String username;
+    private static String emailAddress;
+    private static String password;
     private Image profilePicture;
     private List<Playlist> playlistsCreated;
     private List<Playlist> playlistsLiked;
@@ -39,11 +39,20 @@ public class User {
         this.playlistsCreated = getPlaylistsCreated();
         this.playlistsLiked = getPlaylistsLiked();
     }
+    public User(String userID,String username,String password,String emailAddress) {
+        this.userID = userID;
+        this.username = getUsername();
+        this.emailAddress = getEmailAddress();
+        this.password = password;
+        this.profilePicture = getProfilePicture();
+        this.playlistsCreated = getPlaylistsCreated();
+        this.playlistsLiked = getPlaylistsLiked();
+    }
 
 
     // getters and setters
 
-    public String getUserID() {
+    public static String getUserID() {
         return userID;
     }
 
@@ -51,7 +60,7 @@ public class User {
         this.userID = userID;
     }
 
-    public String getUsername() {
+    public static String getUsername() {
         return username;
     }
 
@@ -59,7 +68,7 @@ public class User {
         this.username = username;
     }
 
-    public String getEmailAddress() {
+    public static String getEmailAddress() {
         return emailAddress;
     }
 
@@ -67,7 +76,7 @@ public class User {
         this.emailAddress = emailAddress;
     }
 
-    public String getPassword() {
+    public static String getPassword() {
         return password;
     }
 
@@ -116,14 +125,6 @@ public class User {
             System.err.println("Error executing SQL query: " + e.getMessage());
         }
     }
-    public static void queryLogin(User user) throws SQLException{
-
-        String query = "SELECT * FROM users WHERE username = ? AND password = ?";
-        PreparedStatement stmt = DatabaseConnection.connectPlz().prepareStatement(query);
-        stmt.setString(1, user.getUsername());
-        stmt.setString(2, user.getPassword());
-        stmt.executeQuery();
-    }
 
     public static boolean IsUserIdExist(String userID) throws SQLException {
 
@@ -134,20 +135,42 @@ public class User {
         return resultSet.next();
 
     }
-    public static boolean IsPassExist(String password) throws SQLException {
+    public static User authorLogin(String userID, String password) throws SQLException {
 
-        String query = "SELECT * FROM Users WHERE password = ?";
+        String query = "SELECT userID , username, password , emailAddress FROM Users WHERE userID = ?";
         PreparedStatement stmt = DatabaseConnection.connectPlz().prepareStatement(query);
-        stmt.setString(1,password);
+        stmt.setString(1, userID);
         ResultSet resultSet = stmt.executeQuery();
-        return resultSet.next();
+        String unknownPass = resultSet.getString("password");
 
+        if(password.equals(unknownPass)){
+            User user = new User(userID,password,resultSet.getString("username"), resultSet.getString("emailAddress"));
+            return user;
+        }
+        return null;
     }
+    public static String queryFindUsername(String userID) throws SQLException {
+
+        String query = "SELECT username FROM Users WHERE userID = ?";
+        PreparedStatement stmt = DatabaseConnection.connectPlz().prepareStatement(query);
+        stmt.setString(1,userID);
+        ResultSet resultSet = stmt.executeQuery();
+        return resultSet.getString("username");
+    }
+    public static String queryFindEmailAddress(String userID) throws SQLException {
+
+        String query = "SELECT emailAddress FROM Users WHERE userID = ?";
+        PreparedStatement stmt = DatabaseConnection.connectPlz().prepareStatement(query);
+        stmt.setString(1,userID);
+        ResultSet resultSet = stmt.executeQuery();
+        return resultSet.getString("emailAddress");
+    }
+
 
     public static void RandomUserIDGenerator(User user) {
 
         UUID uuid = UUID.randomUUID();
-        String userName = "@" + user.getUserID() + uuid.toString().replace("-", "").substring(0, 8);
+        String userName = user.getUserID() + uuid.toString().replace("-", "").substring(0, 8);
         user.setUsername(userName);
 
     }

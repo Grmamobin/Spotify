@@ -1,39 +1,47 @@
 package com.example.spotify.DataBase;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time. Duration;
 import java.util.UUID;
 
 public class Music {
 
-    private UUID trackID;
+    private String trackID;
     private String title;
-    private Artist artist;
-    private Album album;
-    private Genre genre;
-    private Duration duration;
-    private LocalDate releaseDate;
-    private int popularity;
+    private String artist;
+    private String album;
+    private String genre;
+    private String duration;
+    private String Like;
+    private String add;
+    private String imageMusic;
+    private String Link;
+
 
     // constructor
-    public Music(UUID trackID, String title, Artist artist, Album album, Genre genre, Duration duration, LocalDate releaseDate, int popularity) {
+    public Music(String trackID,String album, String title, String artist, String genre, String duration, String Like,String add ,String imageMusic,String Link) {
         this.trackID = trackID;
         this.title = title;
         this.artist = artist;
         this.album = album;
         this.genre = genre;
         this.duration = duration;
-        this.releaseDate = releaseDate;
-        this.popularity = popularity;
+        this.Like=Like;
+        this.add =add;
+        this.imageMusic = imageMusic;
+        this.Link=Link;
     }
 
     // getters and setters
 
-    public UUID getTrackID() {
+    public String getTrackID() {
         return trackID;
     }
 
-    public void setTrackID(UUID trackID) {
+    public void setTrackID(String trackID) {
         this.trackID = trackID;
     }
 
@@ -44,52 +52,54 @@ public class Music {
     public void setTitle(String title) {
         this.title = title;
     }
-
-    public Artist getArtist() {
-        return artist;
-    }
-
-    public void setArtist(Artist artist) {
-        this.artist = artist;
-    }
-
-    public Album getAlbum() {
-        return album;
-    }
-
-    public void setAlbum(Album album) {
-        this.album = album;
-    }
-
-    public Genre getGenre() {
-        return genre;
-    }
-
-    public void setGenre(Genre genre) {
-        this.genre = genre;
-    }
-
-    public Duration getDuration() {
-        return duration;
-    }
-
-    public void setDuration(Duration duration) {
+    public void setDuration(String duration) {
         this.duration = duration;
     }
 
-    public LocalDate getReleaseDate() {
-        return releaseDate;
+    public String getImageMusic() {
+        return imageMusic;
     }
 
-    public void setReleaseDate(LocalDate releaseDate) {
-        this.releaseDate = releaseDate;
+    public void setImageMusic(String imageMusic) {
+        this.imageMusic = imageMusic;
     }
 
-    public int getPopularity() {
-        return popularity;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setPopularity(int popularity) {
-        this.popularity = popularity;
+    public String getDuration() {
+        return duration;
+    }
+
+    public String getAdd() {
+        return add;
+    }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public String getLike() {
+        return Like;
+    }
+
+    public String getLink() {
+        return Link;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+    public static boolean queryFound(String link) throws SQLException {
+        String query = "SELECT * FROM MusicShawn WHERE linkSongs = ?";
+        PreparedStatement stmt = DatabaseConnection.connectPlz().prepareStatement(query);
+        stmt.setString(1,link);
+        ResultSet resultSet = stmt.executeQuery();
+        return resultSet.next();
     }
 }

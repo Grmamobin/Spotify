@@ -16,7 +16,7 @@ public class Album {
     private List<Music> tracks;
 
     // constructor
-    public Album(UUID albumID, String title, Artist artist, Genre genre, LocalDate releaseDate, int popularity) {
+    public Album(String title) {
         this.albumID = albumID;
         this.title = title;
         this.artist = artist;

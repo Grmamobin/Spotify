@@ -50,7 +50,7 @@ public class Artists implements Initializable {
             @Override
             public void onClickListener(Artist artist) throws IOException {
                 if(artist.getName().equals("Ed sheeran")){
-                    root = FXMLLoader.load(getClass().getResource("Ed.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("ChainSmokers.fxml"));
                     stage.setScene(new Scene(root));
                     stage.show();
                 }

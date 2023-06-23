@@ -18,6 +18,11 @@ public class Artist {
 
 
     // getters and setters
+    public Artist(String name){
+        this.name =name;
+
+    }
+    public Artist(){}
 
     public UUID getArtistID() {
         return artistID;

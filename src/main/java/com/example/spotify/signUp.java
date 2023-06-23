@@ -34,7 +34,10 @@ public class signUp {
     private TextField userId;
     @FXML
     private Button signUp;
+    @FXML
+    private Label error;
     private Scanner in;
+    
     @FXML
     void email(ActionEvent event) {
 
@@ -65,7 +68,7 @@ public class signUp {
         jsonRequest.addProperty("emailAddress", user.getEmailAddress());
 
         in = new Scanner(HelloApplication.use().getInputStream());
-        Request.signUpRE(HelloApplication.use(), jsonRequest);
+        Request.everyRE(HelloApplication.use(), jsonRequest);
 
         String response = in.nextLine();
         JsonObject jsonResponse = new Gson().fromJson(response, JsonObject.class);
@@ -82,7 +85,8 @@ public class signUp {
             stage.show();
 
         } else{
-            // if have time add label that shows
+
+            error.setText("userID already exist try again");
         }
 
     }

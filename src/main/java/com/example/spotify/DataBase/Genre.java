@@ -12,10 +12,8 @@ public class Genre {
     private List<Genre> relatedGenres;
 
     // constructor
-    private Genre(UUID genreID, String name, String description) {
-        this.genreID = genreID;
+    public Genre(String name) {
         this.name = name;
-        this.description = description;
         this.relatedGenres = new ArrayList<>();
     }
 

@@ -27,4 +27,28 @@
 .Label {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #C4ECFB 0%, #86C5FC 100%);
 }
+.Labelxy {
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #00154D 0%, #003E7F 100%);
+}
+.table-view .show-hide-columns-button {
+    -fx-padding: 0px;
+    -fx-background-color: transparent;
+    -fx-border-color :#787878;
+    -fx-border-radius: 8 px;
+    -fx-border-width: 2px;
+}
+.table-view .column-header{
+    -fx-background-color:#787878;
+}
+.table-view .column-header-background{
+   -fx-background-color:#787878;
+   -fx-background-radius:8px 8px 0 0;
+   -fx-background-inset: 0 0 0 0;
+}
+.tabel-view .column-header, .filter{
+   -fx-background-color: transparent;
 
+}
+.LabelHip {
+     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #F9ED32 0%,  #EF4136 100%);
+}

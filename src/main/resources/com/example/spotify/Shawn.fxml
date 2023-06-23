@@ -1,8 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="700.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.Shawn">
-
+<AnchorPane prefHeight="817.0" prefWidth="933.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.Shawn">
+   <children>
+      <ImageView fx:id="image" cache="true" fitHeight="943.0" fitWidth="343.0" layoutX="287.0" layoutY="-303.0" opacity="0.54" pickOnBounds="true" rotate="-90.0" smooth="false">
+         <image>
+            <Image url="@Pictures/9bd2fede81977ee2b45a566e7cba706f.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D minX="100.0" minY="100.0" width="100.0" />
+         </viewport>
+      </ImageView>
+      <Circle fx:id="circle" layoutX="113.0" layoutY="322.0" radius="77.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button layoutX="1.0" layoutY="44.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="344.0" style="-fx-background-color: transparent;" text="Shawn" textFill="#dacfcf">
+         <font>
+            <Font name="Arial Bold" size="68.0" />
+         </font>
+      </Button>
+      <Button layoutX="6.0" layoutY="112.0" mnemonicParsing="false" prefHeight="124.0" prefWidth="360.0" style="-fx-background-color: transparent;" text="Mendes" textFill="#dacfcf">
+         <font>
+            <Font name="Arial Bold" size="68.0" />
+         </font>
+      </Button>
+      <Label layoutX="207.0" layoutY="346.0" prefHeight="17.0" prefWidth="641.0" text="Shawn Peter Raul Mendes (born August 8, 1998) is a Canadian pop singer-songwriter. He gained a following in 2013" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Bold" size="11.0" />
+         </font></Label>
+      <Label layoutX="205.0" layoutY="364.0" prefHeight="17.0" prefWidth="641.0" text=" when he posted song covers on the video sharing platform Vine.. The following year, he caught the attention of artist" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Bold" size="11.0" />
+         </font></Label>
+      <Label layoutX="205.0" layoutY="383.0" prefHeight="17.0" prefWidth="649.0" text=" manager Andrew Gertler and Island Records A&amp;R Ziggy Chareton, which led to him signing a deal with the record label." textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Bold" size="11.0" />
+         </font></Label>
+      <Label layoutX="205.0" layoutY="401.0" prefHeight="17.0" prefWidth="649.0" text=" Mendes' self-titled debut EP was released in 2014, followed by his debut studio album Handwritten in 2015." textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Bold" size="11.0" />
+         </font></Label>
+      <Label layoutX="207.0" layoutY="420.0" prefHeight="17.0" prefWidth="649.0" text="Handwritten debuted atop the US Billboard 200, making Mendes one of five artists ever to debut at number one before" textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Bold" size="11.0" />
+         </font></Label>
+      <Label layoutX="204.0" layoutY="438.0" prefHeight="17.0" prefWidth="649.0" text=" the age of 18. The single &quot;Stitches&quot; reached number one in the UK and the top 10 in the US and Canada." textFill="WHITE">
+         <font>
+            <Font name="Avenir Next Bold" size="11.0" />
+         </font></Label>
+      <Button fx:id="Instagram" layoutX="114.0" layoutY="406.0" mnemonicParsing="false" onAction="#insta" prefHeight="38.0" prefWidth="64.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="59.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/instagram.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="Twitter" layoutX="54.0" layoutY="407.0" mnemonicParsing="false" onAction="#twitter" prefHeight="38.0" prefWidth="64.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="59.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/twitter.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <TableView fx:id="availableSongs" layoutX="281.0" layoutY="477.0" onMouseClicked="#selectSong" prefHeight="321.0" prefWidth="625.0" style="-fx-background-color: transparent;" stylesheets="@Style.css">
+        <columns>
+          <TableColumn fx:id="IdSong" prefWidth="31.85345458984375" text="ID" />
+            <TableColumn fx:id="AlbumSong" prefWidth="137.4036865234375" text="Album" />
+          <TableColumn fx:id="SongName" prefWidth="112.96817016601562" text="Song Name" />
+            <TableColumn fx:id="artistsSong" prefWidth="114.39483642578125" text="Artists" />
+            <TableColumn fx:id="genreSong" minWidth="2.09893798828125" prefWidth="42.10516357421875" text="Genre" />
+            <TableColumn fx:id="durationSong" minWidth="0.0" prefWidth="54.9822998046875" text="Duration" />
+            <TableColumn fx:id="likeSong" prefWidth="37.82159423828125" text="Like" />
+            <TableColumn fx:id="addSong" prefWidth="91.5" text="Add to PlayList" />
+        </columns>
+         <styleClass>
+            <String fx:value="table-view" />
+            <String fx:value="tabel-view" />
+            <String fx:value="show-hide-columns-button" />
+            <String fx:value="column-header-background" />
+            <String fx:value="column-header" />
+         </styleClass>
+      </TableView>
+      <Label layoutX="16.0" layoutY="477.0" prefHeight="330.0" prefWidth="251.0" style="-fx-background-radius: 10px;" styleClass="Labelxy" stylesheets="@Style.css" />
+      <Button fx:id="pauseSongss" layoutX="112.0" layoutY="743.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/pause-button.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button fx:id="playSongss" layoutX="122.0" layoutY="746.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/play-2.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <AnchorPane layoutX="33.0" layoutY="487.0" prefHeight="242.0" prefWidth="190.0" style="-fx-border-color: #000;">
+         <children>
+            <ImageView fx:id="imageSONG" fitHeight="237.0" fitWidth="216.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </AnchorPane>
+      <Button layoutX="192.0" layoutY="738.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="46.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="41.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/next-button-1.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="24.0" layoutY="737.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="48.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/previous.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
 </AnchorPane>
