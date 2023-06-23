@@ -1,11 +1,11 @@
 package com.example.spotify.DataBase;
 
+import com.google.gson.JsonObject;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.time. Duration;
-import java.util.UUID;
+import java.util.jar.JarEntry;
 
 public class Music {
 
@@ -95,11 +95,17 @@ public class Music {
     public void setGenre(String genre) {
         this.genre = genre;
     }
-    public static boolean queryFound(String link) throws SQLException {
-        String query = "SELECT * FROM MusicShawn WHERE linkSongs = ?";
+    public static JsonObject LinkPath(String name) throws SQLException {
+        String query = "SELECT LinkSongs FROM Music WHERE artists = ?";
         PreparedStatement stmt = DatabaseConnection.connectPlz().prepareStatement(query);
-        stmt.setString(1,link);
+        stmt.setString(1,name);
         ResultSet resultSet = stmt.executeQuery();
-        return resultSet.next();
+        JsonObject jsonObject = new JsonObject();
+        while (resultSet.next()) {
+            String link = resultSet.getString("LinkSongs");
+            jsonObject.addProperty("link", link);  // Add each result as a property to the JSON object
+        }
+
+        return jsonObject;
     }
 }

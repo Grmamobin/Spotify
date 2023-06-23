@@ -84,12 +84,13 @@ public class profile implements Initializable {
         ID.setText(User.getUserID());
         password.setText(User.getPassword());
 
-        if(User.getUsername() == (null) && User.getEmailAddress() == (null)){
+        if(User.getUsername() == (null)) {
             try {
                 name.setText(User.queryFindUsername(User.getUserID()));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
+        }if(User.getEmailAddress() == (null)){
             try {
                 email.setText(User.queryFindEmailAddress(User.getUserID()));
             } catch (SQLException e) {

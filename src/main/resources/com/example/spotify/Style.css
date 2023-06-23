@@ -30,6 +30,9 @@
 .Labelxy {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #00154D 0%, #003E7F 100%);
 }
+.LabelCH{
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #795548 0%, #00154D 100%);
+}
 .table-view .show-hide-columns-button {
     -fx-padding: 0px;
     -fx-background-color: transparent;
@@ -52,3 +55,10 @@
 .LabelHip {
      -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #F9ED32 0%,  #EF4136 100%);
 }
+.LabelPOP {
+      -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #00A1FF 0%, #00FF8F 100%);
+}
+.LabelIndie {
+     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #00DDFF 0%,#FF00D4  100%);
+}
+

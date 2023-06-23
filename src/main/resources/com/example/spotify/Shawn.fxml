@@ -95,15 +95,15 @@
          </styleClass>
       </TableView>
       <Label layoutX="16.0" layoutY="477.0" prefHeight="330.0" prefWidth="251.0" style="-fx-background-radius: 10px;" styleClass="Labelxy" stylesheets="@Style.css" />
-      <Button fx:id="pauseSongss" layoutX="112.0" layoutY="743.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+      <Button fx:id="pauseSongss" layoutX="90.0" layoutY="759.0" mnemonicParsing="false" onAction="#pause" prefHeight="41.0" prefWidth="25.0" style="-fx-background-color: transparent;">
          <graphic>
-            <ImageView fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="29.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/pause-button.png" />
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="playSongss" layoutX="122.0" layoutY="746.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: transparent;">
+      <Button fx:id="playSongss" layoutX="140.0" layoutY="761.0" mnemonicParsing="false" onAction="#play" onMouseClicked="#SongPlayer" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -116,7 +116,7 @@
             <ImageView fx:id="imageSONG" fitHeight="237.0" fitWidth="216.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
-      <Button layoutX="192.0" layoutY="738.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="46.0" style="-fx-background-color: transparent;">
+      <Button fx:id="next" layoutX="192.0" layoutY="751.0" mnemonicParsing="false" onAction="#nextMedia" prefHeight="40.0" prefWidth="46.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="41.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -124,11 +124,21 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button layoutX="24.0" layoutY="737.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="48.0" style="-fx-background-color: transparent;">
+      <Button fx:id="before" layoutX="25.0" layoutY="753.0" mnemonicParsing="false" onAction="#beforeMedia" prefHeight="40.0" prefWidth="48.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/previous.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button layoutX="839.0" layoutY="16.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="74.0" style="-fx-background-color: transparent;" />
+      <Button fx:id="unlike" layoutX="164.0" layoutY="733.0" mnemonicParsing="false" onAction="#unlike" prefHeight="27.0" prefWidth="34.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fx:id="unlike" fitHeight="38.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/heart.png" />
                </image>
             </ImageView>
          </graphic>

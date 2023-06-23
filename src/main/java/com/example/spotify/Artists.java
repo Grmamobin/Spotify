@@ -49,15 +49,20 @@ public class Artists implements Initializable {
         myListener = new MyListener() {
             @Override
             public void onClickListener(Artist artist) throws IOException {
-                if(artist.getName().equals("Ed sheeran")){
+                if(artist.getName().equals("The Chainsmokers")){
+
+                    mediaPlayer.stop();
                     root = FXMLLoader.load(getClass().getResource("ChainSmokers.fxml"));
                     stage.setScene(new Scene(root));
                     stage.show();
+
                 }
                 if(artist.getName().equals("Shawn Mendes")){
+                    mediaPlayer.stop();
                     root = FXMLLoader.load(getClass().getResource("Shawn.fxml"));
                     stage.setScene(new Scene(root));
                     stage.show();
+
                 }
             }
         };

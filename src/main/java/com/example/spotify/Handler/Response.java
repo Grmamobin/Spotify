@@ -3,6 +3,7 @@ import java.net.Socket;
 import java.io.PrintWriter;
 import java.io.OutputStream;
 import org.json.JSONObject;
+import com.google.gson.JsonObject;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -64,20 +65,14 @@ public class Response {
     public static void editRS(Socket socket,boolean problem,JSONObject jsonObject){
 
     }
-    public static void listenSong(Socket serverSocket,boolean problem){
+    public static void listenSongRS(Socket serverSocket,boolean problem, JsonObject jsonResponse){
         PrintWriter out = null;
         try{
             OutputStream outputStream = serverSocket.getOutputStream();
             out = new PrintWriter(outputStream);
 
-            JSONObject jsonResponse = new JSONObject();
-            jsonResponse.put("TypeRS", "listen to this music");
+            jsonResponse.addProperty("response", "you can listen to this music");
 
-            if(!problem){
-                jsonResponse.put("response", "you are accepted to listen to this song!");
-            } else{
-                jsonResponse.put("response", "not found this music via link");
-            }
             System.out.println("Sending: " + jsonResponse);
             out.println(jsonResponse);
             out.flush();

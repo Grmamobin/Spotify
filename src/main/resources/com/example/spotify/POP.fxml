@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="333.0" prefWidth="875.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.POP">
+    <children>
+        <TableView fx:id="availableSongs" layoutX="284.0" layoutY="10.0" onMouseClicked="#selectSong" prefHeight="310.0" prefWidth="586.0">
+            <columns>
+                <TableColumn fx:id="IdSong" prefWidth="29.0" text="ID" />
+                <TableColumn fx:id="AlbumSong" prefWidth="89.0" text="Album" />
+                <TableColumn fx:id="SongName" prefWidth="83.0" text="Song Name" />
+                <TableColumn fx:id="artistsSong" prefWidth="96.3519287109375" text="Artists" />
+                <TableColumn fx:id="genreSong" prefWidth="63.6480712890625" text="Genre" />
+                <TableColumn fx:id="durationSong" prefWidth="61.0" text="Duration" />
+                <TableColumn fx:id="likeSong" prefWidth="65.0" text="Like" />
+                <TableColumn fx:id="addSong" prefWidth="98.0" text="Add to PlayList" />
+            </columns>
+        </TableView>
+        <Label layoutX="8.0" layoutY="9.0" prefHeight="315.0" prefWidth="265.0" styleClass="LabelPOP" stylesheets="@Style.css" />
+        <AnchorPane layoutX="21.0" layoutY="19.0" prefHeight="252.0" prefWidth="236.0" style="-fx-border-color: #000;">
+            <children>
+                <ImageView fx:id="imageSONG" fitHeight="250.0" fitWidth="234.0" layoutX="1.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            </children>
+        </AnchorPane>
+        <Button layoutX="10.0" layoutY="269.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="85.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Pictures/previous.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button layoutX="182.0" layoutY="270.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="85.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Pictures/next-button-1.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="pause" layoutX="95.0" layoutY="277.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="23.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="42.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Pictures/pause-button.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="play" layoutX="146.0" layoutY="277.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="39.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Pictures/play-2.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
+</AnchorPane>

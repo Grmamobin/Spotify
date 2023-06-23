@@ -1,14 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.spotify.ChainSmokers"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="800.0" prefWidth="961.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.ChainSmokers">
+    <children>
+        <ImageView fx:id="image" cache="true" fitHeight="788.0" fitWidth="961.0" layoutY="29.0" opacity="0.54" pickOnBounds="true" smooth="false">
+            <image>
+                <Image url="@Pictures/IMG_20230621_125829_360.jpg" />
+            </image>
+            <viewport>
+                <Rectangle2D minX="100.0" minY="100.0" width="100.0" />
+            </viewport>
+        </ImageView>
+        <Circle fx:id="circle" layoutX="113.0" layoutY="322.0" radius="77.0" stroke="BLACK" strokeType="INSIDE" />
+        <Button layoutX="98.0" layoutY="-25.0" mnemonicParsing="false" prefHeight="67.0" prefWidth="344.0" style="-fx-background-color: transparent;" text="The " textFill="#dacfcf">
+            <font>
+                <Font name="Arial Bold" size="68.0" />
+            </font>
+        </Button>
+        <Button layoutX="247.0" layoutY="-25.0" mnemonicParsing="false" prefHeight="124.0" prefWidth="674.0" style="-fx-background-color: transparent;" text="ChainSmokers" textFill="#dacfcf">
+            <font>
+                <Font name="Arial Bold" size="68.0" />
+            </font>
+        </Button>
+        <Label layoutX="207.0" layoutY="346.0" prefHeight="17.0" prefWidth="641.0" text="The Chainsmokers are an American electronic DJ and production duo consisting of Alexander &quot;Alex&quot; Pall and Andrew" textFill="WHITE">
+            <font>
+                <Font name="Avenir Next Bold" size="11.0" />
+            </font></Label>
+        <Label layoutX="205.0" layoutY="364.0" prefHeight="17.0" prefWidth="673.0" text=" &quot;Drew&quot; Taggart. They started out by releasing remixes of songs by indie artists.. The EDM-pop duo achieved a breakthrough " textFill="WHITE">
+            <font>
+                <Font name="Avenir Next Bold" size="11.0" />
+            </font></Label>
+        <Label layoutX="205.0" layoutY="383.0" prefHeight="17.0" prefWidth="649.0" text="with their 2014 song &quot;#Selfie&quot;, which became a top-twenty single in several countries. They have won a Grammy award" textFill="WHITE">
+            <font>
+                <Font name="Avenir Next Bold" size="11.0" />
+            </font></Label>
+        <Label layoutX="205.0" layoutY="401.0" prefHeight="17.0" prefWidth="661.0" text="two American Music Awards, seven Billboard Music Awards and nine iHeartRadio Music Awards. According to Forbes 2019" textFill="WHITE">
+            <font>
+                <Font name="Avenir Next Bold" size="11.0" />
+            </font></Label>
+        <Label layoutX="207.0" layoutY="420.0" prefHeight="17.0" prefWidth="649.0" text=" list of highest-paid celebrities, the Chainsmokers were the highest-paid DJs, dethroning Calvin Harris after six years." textFill="WHITE">
+            <font>
+                <Font name="Avenir Next Bold" size="11.0" />
+            </font></Label>
+        <Button fx:id="Instagram" layoutX="114.0" layoutY="406.0" mnemonicParsing="false" onAction="#insta" prefHeight="38.0" prefWidth="64.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="59.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Pictures/instagram.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <Button fx:id="Twitter" layoutX="54.0" layoutY="407.0" mnemonicParsing="false" onAction="#twitter" prefHeight="38.0" prefWidth="64.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="59.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Pictures/twitter.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+        <TableView fx:id="availableSongs" layoutX="281.0" layoutY="477.0" onMouseClicked="#selectSong" prefHeight="321.0" prefWidth="625.0" style="-fx-background-color: transparent;" stylesheets="@Style.css">
+            <columns>
+                <TableColumn fx:id="IdSong" prefWidth="31.85345458984375" text="ID" />
+                <TableColumn fx:id="AlbumSong" prefWidth="137.4036865234375" text="Album" />
+                <TableColumn fx:id="SongName" prefWidth="112.96817016601562" text="Song Name" />
+                <TableColumn fx:id="artistsSong" prefWidth="114.39483642578125" text="Artists" />
+                <TableColumn fx:id="genreSong" minWidth="2.09893798828125" prefWidth="42.10516357421875" text="Genre" />
+                <TableColumn fx:id="durationSong" minWidth="0.0" prefWidth="54.9822998046875" text="Duration" />
+                <TableColumn fx:id="likeSong" prefWidth="37.82159423828125" text="Like" />
+                <TableColumn fx:id="addSong" prefWidth="91.5" text="Add to PlayList" />
+            </columns>
+            <styleClass>
+                <String fx:value="table-view" />
+                <String fx:value="tabel-view" />
+                <String fx:value="show-hide-columns-button" />
+                <String fx:value="column-header-background" />
+                <String fx:value="column-header" />
+            </styleClass>
+        </TableView>
+        <Label layoutX="16.0" layoutY="477.0" prefHeight="330.0" prefWidth="251.0" style="-fx-background-radius: 10px;" styleClass="LabelCH" stylesheets="@Style.css">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></Label>
+        <Button fx:id="pauseSongss" layoutX="93.0" layoutY="743.0" mnemonicParsing="false" onAction="#pause" prefHeight="35.0" prefWidth="0.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Pictures/pause-button.png" />
+                    </image>
+                </ImageView>
+            </graphic></Button>
+        <Button fx:id="playSongss" layoutX="146.0" layoutY="747.0" mnemonicParsing="false" onAction="#play" onMouseClicked="#SongPlayer" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Pictures/play-2.png" />
+                    </image>
+                </ImageView>
+            </graphic></Button>
+        <AnchorPane layoutX="33.0" layoutY="487.0" prefHeight="242.0" prefWidth="190.0" style="-fx-border-color: #000;">
+            <children>
+                <ImageView fx:id="imageSONG" fitHeight="237.0" fitWidth="216.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+            </children>
+        </AnchorPane>
+        <Button fx:id="next" layoutX="192.0" layoutY="738.0" mnemonicParsing="false" onAction="#nextMedia" prefHeight="40.0" prefWidth="46.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="41.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Pictures/next-button-1.png" />
+                    </image>
+                </ImageView>
+            </graphic></Button>
+        <Button fx:id="before" layoutX="24.0" layoutY="737.0" mnemonicParsing="false" onAction="#beforeMedia" prefHeight="40.0" prefWidth="48.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@Pictures/previous.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
 </AnchorPane>

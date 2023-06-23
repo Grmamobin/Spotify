@@ -5,10 +5,14 @@ import com.example.spotify.DataBase.DatabaseConnection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.control.TableColumn;
@@ -16,6 +20,12 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import java.io.IOException;
+import javafx.scene.media.Media;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 
 import java.net.URL;
 import java.sql.*;
@@ -65,11 +75,23 @@ public class Shawn implements Initializable {
     private Button Twitter;
     @FXML
     private Button Instagram;
+    @FXML
+    private Button before;
+    @FXML
+    private Button next,unlike;
+    @FXML
+    private Button back,after;
     private Connection connection;
     private PreparedStatement prepared;
     private Statement statement;
     private ResultSet resultSet;
     private Image images;
+    private  MediaPlayer mediaPlayer;
+    private Music music;
+    private Parent root;
+    private Scene scene;
+    private Stage stage = new Stage();
+
     @FXML
     void insta(ActionEvent event) {
         String url = "https://www.instagram.com/shawnmendes/";
@@ -89,6 +111,7 @@ public class Shawn implements Initializable {
             System.out.println(e.getMessage());
         }
     }
+
 
     public ObservableList<Music> dataList() throws SQLException {
         //connect to database to select your desire song from shawn
@@ -144,17 +167,66 @@ public class Shawn implements Initializable {
 
     }
 
-/*    public void SongPlayer(String filepath, ImageView playPauseIcon){
-        Media media = new Media(filepath);
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        this.playPauseIcon = playPauseIcon;
-        playIconImage = new Image("path/to/play/icon.png");
-        pauseIconImage = new Image("path/to/pause/icon.png");
+    public void SongPlayer(){
+        final Lock playerLock = new ReentrantLock();
+        music = availableSongs.getSelectionModel().getSelectedItem();
+        int num = availableSongs.getSelectionModel().getFocusedIndex();
+        if ((num-1)<-1){ return;}
+        String link = music.getLink().replaceAll(" ", "%20");
+        String url = "file://"+link;
+        //System.out.println(url);
+        playerLock.lock(); // Acquire lock before accessing shared resource
 
-        // Add listener to toggle play/pause icon when player status changes
-        mediaPlayer.setOnPlaying(() -> setPlayPauseIcon(pauseIconImage));
-        mediaPlayer.setOnPaused(() -> setPlayPauseIcon(playIconImage));
-    }*/
+        try {
+            mediaPlayer = new MediaPlayer(new Media(url));
+            mediaPlayer.play();
+        } finally {
+            playerLock.unlock(); // Release lock when done accessing shared resource
+        }
+
+    }
+    @FXML
+    void pause(ActionEvent event) {
+        if (mediaPlayer != null) {
+            mediaPlayer.pause();
+        } else {}
+    }
+
+    @FXML
+    void play(ActionEvent event) {
+       //mediaPlayer.play();
+    }
+    @FXML
+    void nextMedia(ActionEvent event) {
+    //SELECT * FROM songs WHERE song_index = (current_index + 1)  todo
+
+    }
+    @FXML
+    void beforeMedia(ActionEvent event) {
+        if(mediaPlayer.getCurrentTime().toSeconds() <= 5){
+            mediaPlayer.seek(mediaPlayer.getCurrentTime().subtract(Duration.seconds(0)));
+        } else {
+            mediaPlayer.seek(mediaPlayer.getCurrentTime().subtract(Duration.seconds(5)));
+        }
+    }
+    @FXML
+    void back() throws IOException {
+        Stage currentStage = (Stage) back.getScene().getWindow();
+        // Close the current stage
+        currentStage.close();
+        root = FXMLLoader.load(getClass().getResource("Artists.fxml"));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    @FXML
+    void after() throws IOException {
+        Stage currentStage = (Stage) after.getScene().getWindow();
+        // Close the current stage
+        currentStage.close();
+        root = FXMLLoader.load(getClass().getResource("ChainSmokers.fxml"));
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -168,6 +240,20 @@ public class Shawn implements Initializable {
         }
 
     }
+    @FXML
+    void unlike() {
+        unlike.setText("Like");
 
+/*        // set the text for the like button when it's selected
+        unlike.setSelected(false);
+        unlike.setDisable(false);
+        unlike.selectedProperty().addListener((obs, wasSelected, isNowSelected) -> {
+            if (isNowSelected) {
+                unlike.setText("Unlike");
+            } else {
+                unlike.setText("Like");
+            }
+        });*/
+    }
 }
 

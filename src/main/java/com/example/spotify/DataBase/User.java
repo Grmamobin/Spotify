@@ -170,7 +170,7 @@ public class User {
     public static void RandomUserIDGenerator(User user) {
 
         UUID uuid = UUID.randomUUID();
-        String userName = user.getUserID() + uuid.toString().replace("-", "").substring(0, 8);
+        String userName ="@"+user.getUserID() + uuid.toString().replace("-", "").substring(0, 8);
         user.setUsername(userName);
 
     }

@@ -17,6 +17,14 @@ public class genre {
 
     @FXML
     private Button back;
+    @FXML
+    private Button HipHop;
+    @FXML
+    private Button Indie;
+
+    @FXML
+    private Button POP;
+
 
     @FXML
     void back(ActionEvent event) throws IOException {
@@ -31,5 +39,30 @@ public class genre {
         stage.show();
 
     }
+    @FXML
+    void HipHop() throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("Hip_Hop.fxml"));
+        //stage.setMaximized(true);
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    @FXML
+    void POP() throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("POP.fxml"));
+        //stage.setMaximized(true);
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+    @FXML
+    void Indie() throws IOException {
+
+        root = FXMLLoader.load(getClass().getResource("Indie.fxml"));
+        //stage.setMaximized(true);
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
 
 }

@@ -112,11 +112,12 @@ public class ServerApplication implements Runnable {
         }
         if(requestType.equals("listen to this music")){ //FOURTH
 
-            String link = jsonRE.get("link").getAsString();
-            if(Music.queryFound(link)){
-                Response.listenSong(serverSocket, true);
+            String name = jsonRE.get("title").getAsString();
+            JsonObject file_path =  Music.LinkPath(name);  //search via database to find this file exist or not
+            if (file_path != null){
+                Response.listenSongRS(serverSocket,true,file_path);
             } else{
-                Response.listenSong(serverSocket,false);
+                Response.listenSongRS(serverSocket,false,file_path);
             }
 
         }

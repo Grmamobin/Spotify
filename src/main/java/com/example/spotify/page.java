@@ -13,11 +13,14 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import com.example.spotify.DataBase.User;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 import javafx.scene.control.Label;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.Scanner;
+import javafx.scene.media.MediaPlayer.Status;
 
 import javafx.stage.StageStyle;
 public class page {
@@ -69,7 +72,9 @@ public class page {
     private Scene scene;
     private Stage stage = new Stage();
     private Scanner in;
-
+    private MediaPlayer mediaPlayer;
+    Status status = Status.STOPPED;
+    private int clickCount = 0;
     @FXML
      void ProfileClick() throws IOException {
 
@@ -163,25 +168,56 @@ public class page {
         //send via json
         JsonObject jsonRequest = new JsonObject();
         jsonRequest.addProperty("TypeRE", "listen to this music");
-        jsonRequest.addProperty("link song", "/Users/macbookpro/Desktop/Spotify/src/main/resources/com/example/spotify/Music/softcore_The neighbourhood.mp3");
+        jsonRequest.addProperty("title", "Neighborhood");
 
         in = new Scanner(HelloApplication.use().getInputStream());
         Request.everyRE(HelloApplication.use(), jsonRequest);
 
         String response = in.nextLine();
         JsonObject jsonResponse = new Gson().fromJson(response, JsonObject.class);
-        String result = jsonResponse.get("response").getAsString();
+        String result = jsonResponse.get("link").getAsString(); //receive song via server
 
-        if(result.equals("you are accepted to listen to this song!")){
-           System.out.println(0);
+        //play the song and stop it after the second press
+        if (mediaPlayer == null) {
+            String link = result.replaceAll(" ", "%20");
+            String url = "file://" + link;
+            mediaPlayer = new MediaPlayer(new Media(url));
         }
-
+        clickCount++;
+        if (clickCount % 2 == 1) {
+            mediaPlayer.play();
+        } else {
+            mediaPlayer.pause();
+        }
     }
+
 
     @FXML
-    void taylorSong(ActionEvent event) {
+    void taylorSong(ActionEvent event) throws IOException {
+        //send via json
+        JsonObject jsonRequest = new JsonObject();
+        jsonRequest.addProperty("TypeRE", "listen to this music");
+        jsonRequest.addProperty("title", "Taylor Swift");
 
+        in = new Scanner(HelloApplication.use().getInputStream());
+        Request.everyRE(HelloApplication.use(), jsonRequest);
+
+        String response = in.nextLine();
+        JsonObject jsonResponse = new Gson().fromJson(response, JsonObject.class);
+        String result = jsonResponse.get("link").getAsString(); //receive song via server
+
+        //play the song and stop it after the second press
+        if (mediaPlayer == null) {
+            String link = result.replaceAll(" ", "%20");
+            String url = "file://" + link;
+            mediaPlayer = new MediaPlayer(new Media(url));
+        }
+        clickCount++;
+        if (clickCount % 2 == 1) {
+            mediaPlayer.play();
+        } else {
+            mediaPlayer.pause();
+        }
     }
-
 
 }
