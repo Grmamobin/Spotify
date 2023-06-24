@@ -23,6 +23,8 @@ import java.util.Scanner;
 import javafx.scene.media.MediaPlayer.Status;
 
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
+
 public class page {
 
     @FXML
@@ -65,7 +67,7 @@ public class page {
     @FXML
     private Button genre;
     @FXML
-    private Button create;
+    private Button create ,Search;
     @FXML
     private TextField searchfield;
     private Parent root;
@@ -73,8 +75,10 @@ public class page {
     private Stage stage = new Stage();
     private Scanner in;
     private MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer2;
     Status status = Status.STOPPED;
     private int clickCount = 0;
+    private int ClickCount = 0;
     @FXML
      void ProfileClick() throws IOException {
 
@@ -161,6 +165,17 @@ public class page {
         profileStage.setTitle("playLists");
         profileStage.show();
     }
+    @FXML
+    void Search(ActionEvent event) throws IOException {
+        // Open the new stage/window
+        Parent root = FXMLLoader.load(getClass().getResource("Search.fxml"));
+        Scene scene = new Scene(root);
+        Stage profileStage = new Stage();
+        profileStage.initStyle(StageStyle.DECORATED);
+        profileStage.setScene(scene);
+        profileStage.setTitle("Search");
+        profileStage.show();
+    }
 
     @FXML
     void neighborhoodSong(ActionEvent event) throws IOException {
@@ -168,7 +183,7 @@ public class page {
         //send via json
         JsonObject jsonRequest = new JsonObject();
         jsonRequest.addProperty("TypeRE", "listen to this music");
-        jsonRequest.addProperty("title", "Neighborhood");
+        jsonRequest.addProperty("title", "SoftCore");
 
         in = new Scanner(HelloApplication.use().getInputStream());
         Request.everyRE(HelloApplication.use(), jsonRequest);
@@ -178,17 +193,20 @@ public class page {
         String result = jsonResponse.get("link").getAsString(); //receive song via server
 
         //play the song and stop it after the second press
-        if (mediaPlayer == null) {
+        if (mediaPlayer2 == null) {
             String link = result.replaceAll(" ", "%20");
             String url = "file://" + link;
-            mediaPlayer = new MediaPlayer(new Media(url));
+            mediaPlayer2 = new MediaPlayer(new Media(url));
+            System.out.println(url);
         }
-        clickCount++;
-        if (clickCount % 2 == 1) {
-            mediaPlayer.play();
+        ClickCount++;
+        if (ClickCount % 2 == 1) {
+            mediaPlayer2.play();
+
         } else {
-            mediaPlayer.pause();
+            mediaPlayer2.pause();
         }
+
     }
 
 
@@ -197,7 +215,7 @@ public class page {
         //send via json
         JsonObject jsonRequest = new JsonObject();
         jsonRequest.addProperty("TypeRE", "listen to this music");
-        jsonRequest.addProperty("title", "Taylor Swift");
+        jsonRequest.addProperty("title", "Gold Rush");
 
         in = new Scanner(HelloApplication.use().getInputStream());
         Request.everyRE(HelloApplication.use(), jsonRequest);
@@ -211,10 +229,16 @@ public class page {
             String link = result.replaceAll(" ", "%20");
             String url = "file://" + link;
             mediaPlayer = new MediaPlayer(new Media(url));
+            System.out.println(url);
         }
         clickCount++;
         if (clickCount % 2 == 1) {
             mediaPlayer.play();
+
+            if(mediaPlayer.getCurrentTime().equals(mediaPlayer.getTotalDuration())) {
+                mediaPlayer.seek(Duration.seconds(0));
+            }
+
         } else {
             mediaPlayer.pause();
         }

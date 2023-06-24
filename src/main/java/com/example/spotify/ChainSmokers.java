@@ -2,6 +2,9 @@ package com.example.spotify;
 
 import com.example.spotify.DataBase.Music;
 import com.example.spotify.DataBase.DatabaseConnection;
+import com.example.spotify.Handler.Request;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -22,6 +25,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -59,12 +63,6 @@ public class ChainSmokers implements Initializable {
 
     @FXML
     private TableColumn<Music, String> likeSong;
-
-    @FXML
-    private Button pauseSongss;
-
-    @FXML
-    private Button playSongss;
     @FXML
     private Button Twitter;
     @FXML
@@ -72,13 +70,14 @@ public class ChainSmokers implements Initializable {
     @FXML
     private Button before;
     @FXML
-    private Button next;
+    private Button previousSong,nextSong,pause,play;
     private Connection connection;
     private PreparedStatement prepared;
     private Statement statement;
     private ResultSet resultSet;
     private Image images;
-    private MediaPlayer mediaPlayer;
+    private MediaPlayer mediaPlayer2;
+    private Scanner in;
     @FXML
     void insta(ActionEvent event) {
         String url = "https://www.instagram.com/thechainsmokers/";
@@ -144,44 +143,60 @@ public class ChainSmokers implements Initializable {
         availableSongs.setItems(listMusic);
 
     }
-    public void selectSong(){
+    public void selectSong() throws IOException {
+
         Music music = availableSongs.getSelectionModel().getSelectedItem();
         int num = availableSongs.getSelectionModel().getFocusedIndex();
         if ((num-1)<-1){ return;}
         String url = "file:"+music.getImageMusic();
-        images = new Image(url,216,237,false,true);
+        images = new Image(url,234,250,false,true);
         imageSONG.setImage(images);
 
-    }
-     public void SongPlayer(){
-        final Lock playerLock = new ReentrantLock();
-        Music music = availableSongs.getSelectionModel().getSelectedItem();
-        int num = availableSongs.getSelectionModel().getFocusedIndex();
-        if ((num-1)<-1){ return;}
-         String link = music.getLink().replaceAll(" ", "%20");
-        String url = "file://" + link;
-        System.out.println(url);
-        playerLock.lock(); // Acquire lock before accessing shared resource
+        //send via json
+        JsonObject jsonRequest = new JsonObject();
+        jsonRequest.addProperty("TypeRE", "listen to this music");
+        jsonRequest.addProperty("title",music.getTitle());
+        System.out.println(music.getTitle());
+        in = new Scanner(HelloApplication.use().getInputStream());
+        Request.everyRE(HelloApplication.use(), jsonRequest);
 
-        try {
-            mediaPlayer = new MediaPlayer(new Media(url));
-            mediaPlayer.play();
-        } finally {
-            playerLock.unlock(); // Release lock when done accessing shared resource
-        }
+        String response = in.nextLine();
+        JsonObject jsonResponse = new Gson().fromJson(response, JsonObject.class);
+        String result = jsonResponse.get("link").getAsString(); //receive song via server
+        String link = result.replaceAll(" ", "%20");
+        url = "file://" + link;
+        mediaPlayer2 = new MediaPlayer(new Media(url));
 
-    }
-    @FXML
-    void pause(ActionEvent event) {
+        //play and pause and previous and next
+        play.setOnAction(event -> mediaPlayer2.play());
+        pause.setOnAction(event -> mediaPlayer2.pause());
+        previousSong.setOnAction(event -> {
+            int currentIndex = availableSongs.getSelectionModel().getSelectedIndex();
 
-    }
+            if (currentIndex > 0) {
+                availableSongs.getSelectionModel().select(currentIndex - 1);
 
-    @FXML
-    void play(ActionEvent event) {
+                try {
+                    selectSong();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        nextSong.setOnAction(event -> {
+            int currentIndex = availableSongs.getSelectionModel().getSelectedIndex();
 
-    }
-    @FXML
-    void nextMedia(ActionEvent event) {
+            if (currentIndex >= 0) {
+                availableSongs.getSelectionModel().select(currentIndex + 1);
+
+                try {
+                    selectSong();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
 
     }
 

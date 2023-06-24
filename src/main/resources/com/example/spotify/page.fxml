@@ -29,11 +29,6 @@
                   <Image url="@Pictures/home%20(1).png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="46.0" layoutX="41.0" layoutY="183.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Pictures/loupe%20(1).png" />
-               </image>
-            </ImageView>
             <Label layoutX="98.0" layoutY="183.0" prefHeight="23.0" prefWidth="60.0" styleClass="over" stylesheets="@Style.css" text="Search" wrapText="true">
                <font>
                   <Font name="System Bold" size="18.0" />
@@ -215,6 +210,15 @@
                   <ImageView fitHeight="46.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Pictures/playlist.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Search" layoutX="37.0" layoutY="177.0" mnemonicParsing="false" onAction="#Search" prefHeight="47.0" prefWidth="53.0" style="-fx-background-color: transparent;">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Pictures/loupe%20(1).png" />
                      </image>
                   </ImageView>
                </graphic>

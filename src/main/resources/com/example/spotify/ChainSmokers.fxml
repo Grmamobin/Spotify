@@ -95,7 +95,7 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets></Label>
-        <Button fx:id="pauseSongss" layoutX="93.0" layoutY="743.0" mnemonicParsing="false" onAction="#pause" prefHeight="35.0" prefWidth="0.0" style="-fx-background-color: transparent;">
+        <Button fx:id="pause" layoutX="93.0" layoutY="743.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="0.0" style="-fx-background-color: transparent;">
             <graphic>
                 <ImageView fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -103,7 +103,7 @@
                     </image>
                 </ImageView>
             </graphic></Button>
-        <Button fx:id="playSongss" layoutX="146.0" layoutY="747.0" mnemonicParsing="false" onAction="#play" onMouseClicked="#SongPlayer" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;">
+        <Button fx:id="play" layoutX="146.0" layoutY="747.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;">
             <graphic>
                 <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -116,7 +116,7 @@
                 <ImageView fx:id="imageSONG" fitHeight="237.0" fitWidth="216.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
             </children>
         </AnchorPane>
-        <Button fx:id="next" layoutX="192.0" layoutY="738.0" mnemonicParsing="false" onAction="#nextMedia" prefHeight="40.0" prefWidth="46.0" style="-fx-background-color: transparent;">
+        <Button fx:id="nextSong" layoutX="192.0" layoutY="738.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="46.0" style="-fx-background-color: transparent;">
             <graphic>
                 <ImageView fitHeight="41.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -124,7 +124,7 @@
                     </image>
                 </ImageView>
             </graphic></Button>
-        <Button fx:id="before" layoutX="24.0" layoutY="737.0" mnemonicParsing="false" onAction="#beforeMedia" prefHeight="40.0" prefWidth="48.0" style="-fx-background-color: transparent;">
+        <Button fx:id="previousSong" layoutX="24.0" layoutY="737.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="48.0" style="-fx-background-color: transparent;">
             <graphic>
                 <ImageView fitHeight="44.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                     <image>

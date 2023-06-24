@@ -34,6 +34,17 @@ public class Music {
         this.imageMusic = imageMusic;
         this.Link=Link;
     }
+    public Music(String trackID,String album, String title, String artist, String genre, String duration, String Like,String add) {
+        this.trackID = trackID;
+        this.title = title;
+        this.artist = artist;
+        this.album = album;
+        this.genre = genre;
+        this.duration = duration;
+        this.Like=Like;
+        this.add =add;
+    }
+
 
     // getters and setters
 
@@ -77,7 +88,7 @@ public class Music {
     }
 
     public String getAlbum() {
-        return album;
+        return album == null ? "" : album;
     }
 
     public String getArtist() {
@@ -96,7 +107,7 @@ public class Music {
         this.genre = genre;
     }
     public static JsonObject LinkPath(String name) throws SQLException {
-        String query = "SELECT LinkSongs FROM Music WHERE artists = ?";
+        String query = "SELECT LinkSongs FROM Music WHERE songName = ?";
         PreparedStatement stmt = DatabaseConnection.connectPlz().prepareStatement(query);
         stmt.setString(1,name);
         ResultSet resultSet = stmt.executeQuery();

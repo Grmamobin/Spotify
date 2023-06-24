@@ -2,6 +2,9 @@ package com.example.spotify;
 
 import com.example.spotify.DataBase.DatabaseConnection;
 import com.example.spotify.DataBase.Music;
+import com.example.spotify.Handler.Request;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.Initializable;
@@ -9,14 +12,18 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.fxml.FXML;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 public class Indie implements Initializable {
     @FXML
@@ -49,16 +56,18 @@ public class Indie implements Initializable {
     private ImageView imageSONG;
 
     @FXML
-    private Button pause;
+    private Button pause , previousSong;
 
     @FXML
-    private Button play;
+    private Button play,nextSong;
+    private Scanner in;
 
     private Connection connection;
     private PreparedStatement prepared;
     private Statement statement;
     private ResultSet resultSet;
     private Image images;
+    private MediaPlayer mediaPlayer2;
     public ObservableList<Music> dataList() throws SQLException {
         //connect to database to select your desire song from shawn
         ObservableList<Music> MusicList = FXCollections.observableArrayList();
@@ -103,13 +112,59 @@ public class Indie implements Initializable {
         availableSongs.setItems(listMusic);
 
     }
-    public void selectSong(){
+    public void selectSong() throws IOException {
         Music music = availableSongs.getSelectionModel().getSelectedItem();
         int num = availableSongs.getSelectionModel().getFocusedIndex();
         if ((num-1)<-1){ return;}
         String url = "file:"+music.getImageMusic();
         images = new Image(url,234,250,false,true);
         imageSONG.setImage(images);
+
+        //send via json
+        JsonObject jsonRequest = new JsonObject();
+        jsonRequest.addProperty("TypeRE", "listen to this music");
+        jsonRequest.addProperty("title",music.getTitle());
+        System.out.println(music.getTitle());
+        in = new Scanner(HelloApplication.use().getInputStream());
+        Request.everyRE(HelloApplication.use(), jsonRequest);
+
+        String response = in.nextLine();
+        JsonObject jsonResponse = new Gson().fromJson(response, JsonObject.class);
+        String result = jsonResponse.get("link").getAsString(); //receive song via server
+        String link = result.replaceAll(" ", "%20");
+        url = "file://" + link;
+        mediaPlayer2 = new MediaPlayer(new Media(url));
+
+        //play and pause and previous and next
+        play.setOnAction(event -> mediaPlayer2.play());
+        pause.setOnAction(event -> mediaPlayer2.pause());
+        previousSong.setOnAction(event -> {
+            int currentIndex = availableSongs.getSelectionModel().getSelectedIndex();
+
+            if (currentIndex > 0) {
+                availableSongs.getSelectionModel().select(currentIndex - 1);
+
+                try {
+                    selectSong();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        nextSong.setOnAction(event -> {
+            int currentIndex = availableSongs.getSelectionModel().getSelectedIndex();
+
+            if (currentIndex >= 0) {
+                availableSongs.getSelectionModel().select(currentIndex + 1);
+
+                try {
+                    selectSong();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
 
     }
 
@@ -122,16 +177,5 @@ public class Indie implements Initializable {
         }
     }
 
-/*    public void SongPlayer(String filepath, ImageView playPauseIcon){
-        Media media = new Media(filepath);
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
-        this.playPauseIcon = playPauseIcon;
-        playIconImage = new Image("path/to/play/icon.png");
-        pauseIconImage = new Image("path/to/pause/icon.png");
-
-        // Add listener to toggle play/pause icon when player status changes
-        mediaPlayer.setOnPlaying(() -> setPlayPauseIcon(pauseIconImage));
-        mediaPlayer.setOnPaused(() -> setPlayPauseIcon(playIconImage));
-    }*/
 
 }

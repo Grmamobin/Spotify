@@ -2,6 +2,9 @@ package com.example.spotify;
 
 import com.example.spotify.DataBase.Music;
 import com.example.spotify.DataBase.DatabaseConnection;
+import com.example.spotify.Handler.Request;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -23,6 +26,8 @@ import java.io.IOException;
 import javafx.scene.media.Media;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+
+import java.util.Scanner;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -78,9 +83,9 @@ public class Shawn implements Initializable {
     @FXML
     private Button before;
     @FXML
-    private Button next,unlike;
+    private Button unlike;
     @FXML
-    private Button back,after;
+    private Button previousSong,nextSong,pause,play;
     private Connection connection;
     private PreparedStatement prepared;
     private Statement statement;
@@ -91,6 +96,8 @@ public class Shawn implements Initializable {
     private Parent root;
     private Scene scene;
     private Stage stage = new Stage();
+    private Scanner in;
+    private MediaPlayer mediaPlayer2;
 
     @FXML
     void insta(ActionEvent event) {
@@ -157,48 +164,60 @@ public class Shawn implements Initializable {
         availableSongs.setItems(listMusic);
 
     }
-    public void selectSong(){
+    public void selectSong() throws IOException {
+
         Music music = availableSongs.getSelectionModel().getSelectedItem();
         int num = availableSongs.getSelectionModel().getFocusedIndex();
         if ((num-1)<-1){ return;}
         String url = "file:"+music.getImageMusic();
-        images = new Image(url,216,237,false,true);
+        images = new Image(url,234,250,false,true);
         imageSONG.setImage(images);
 
-    }
+        //send via json
+        JsonObject jsonRequest = new JsonObject();
+        jsonRequest.addProperty("TypeRE", "listen to this music");
+        jsonRequest.addProperty("title",music.getTitle());
 
-    public void SongPlayer(){
-        final Lock playerLock = new ReentrantLock();
-        music = availableSongs.getSelectionModel().getSelectedItem();
-        int num = availableSongs.getSelectionModel().getFocusedIndex();
-        if ((num-1)<-1){ return;}
-        String link = music.getLink().replaceAll(" ", "%20");
-        String url = "file://"+link;
-        //System.out.println(url);
-        playerLock.lock(); // Acquire lock before accessing shared resource
+        in = new Scanner(HelloApplication.use().getInputStream());
+        Request.everyRE(HelloApplication.use(), jsonRequest);
 
-        try {
-            mediaPlayer = new MediaPlayer(new Media(url));
-            mediaPlayer.play();
-        } finally {
-            playerLock.unlock(); // Release lock when done accessing shared resource
-        }
+        String response = in.nextLine();
+        JsonObject jsonResponse = new Gson().fromJson(response, JsonObject.class);
+        String result = jsonResponse.get("link").getAsString(); //receive song via server
+        String link = result.replaceAll(" ", "%20");
+        url = "file://" + link;
+        mediaPlayer2 = new MediaPlayer(new Media(url));
 
-    }
-    @FXML
-    void pause(ActionEvent event) {
-        if (mediaPlayer != null) {
-            mediaPlayer.pause();
-        } else {}
-    }
+        //play and pause and previous and next
+        play.setOnAction(event -> mediaPlayer2.play());
+        pause.setOnAction(event -> mediaPlayer2.pause());
+        previousSong.setOnAction(event -> {
+            int currentIndex = availableSongs.getSelectionModel().getSelectedIndex();
 
-    @FXML
-    void play(ActionEvent event) {
-       //mediaPlayer.play();
-    }
-    @FXML
-    void nextMedia(ActionEvent event) {
-    //SELECT * FROM songs WHERE song_index = (current_index + 1)  todo
+            if (currentIndex > 0) {
+                availableSongs.getSelectionModel().select(currentIndex - 1);
+
+                try {
+                    selectSong();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+        nextSong.setOnAction(event -> {
+            int currentIndex = availableSongs.getSelectionModel().getSelectedIndex();
+
+            if (currentIndex >= 0) {
+                availableSongs.getSelectionModel().select(currentIndex + 1);
+
+                try {
+                    selectSong();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
 
     }
     @FXML
@@ -208,24 +227,6 @@ public class Shawn implements Initializable {
         } else {
             mediaPlayer.seek(mediaPlayer.getCurrentTime().subtract(Duration.seconds(5)));
         }
-    }
-    @FXML
-    void back() throws IOException {
-        Stage currentStage = (Stage) back.getScene().getWindow();
-        // Close the current stage
-        currentStage.close();
-        root = FXMLLoader.load(getClass().getResource("Artists.fxml"));
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
-    @FXML
-    void after() throws IOException {
-        Stage currentStage = (Stage) after.getScene().getWindow();
-        // Close the current stage
-        currentStage.close();
-        root = FXMLLoader.load(getClass().getResource("ChainSmokers.fxml"));
-        stage.setScene(new Scene(root));
-        stage.show();
     }
 
     @Override
