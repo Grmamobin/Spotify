@@ -22,33 +22,34 @@ public class Music {
 
 
     // constructor
-    public Music(String trackID,String album, String title, String artist, String genre, String duration, String Like,String add ,String imageMusic,String Link) {
+    public Music(String trackID, String album, String title, String artist, String genre, String duration, String Like, String add, String imageMusic, String Link) {
         this.trackID = trackID;
         this.title = title;
         this.artist = artist;
         this.album = album;
         this.genre = genre;
         this.duration = duration;
-        this.Like=Like;
-        this.add =add;
+        this.Like = Like;
+        this.add = add;
         this.imageMusic = imageMusic;
-        this.Link=Link;
+        this.Link = Link;
     }
-    public Music(String trackID,String album, String title, String artist, String genre, String duration, String Like,String add) {
+
+    public Music(String trackID, String album, String title, String artist, String genre, String duration, String Like, String add) {
         this.trackID = trackID;
         this.title = title;
         this.artist = artist;
         this.album = album;
         this.genre = genre;
         this.duration = duration;
-        this.Like=Like;
-        this.add =add;
+        this.Like = Like;
+        this.add = add;
     }
 
 
     // getters and setters
 
-    public String getTrackID() {
+    public  String getTrackID() {
         return trackID;
     }
 
@@ -63,6 +64,7 @@ public class Music {
     public void setTitle(String title) {
         this.title = title;
     }
+
     public void setDuration(String duration) {
         this.duration = duration;
     }
@@ -106,10 +108,12 @@ public class Music {
     public void setGenre(String genre) {
         this.genre = genre;
     }
+
     public static JsonObject LinkPath(String name) throws SQLException {
+
         String query = "SELECT LinkSongs FROM Music WHERE songName = ?";
         PreparedStatement stmt = DatabaseConnection.connectPlz().prepareStatement(query);
-        stmt.setString(1,name);
+        stmt.setString(1, name);
         ResultSet resultSet = stmt.executeQuery();
         JsonObject jsonObject = new JsonObject();
         while (resultSet.next()) {
@@ -119,4 +123,34 @@ public class Music {
 
         return jsonObject;
     }
+    public static JsonObject LinkByID(String name) throws SQLException{
+
+        String query = "SELECT LinkSongs FROM Music WHERE ID = ?";
+        PreparedStatement stmt = DatabaseConnection.connectPlz().prepareStatement(query);
+        stmt.setString(1, name);
+        ResultSet resultSet = stmt.executeQuery();
+        JsonObject jsonObject = new JsonObject();
+        while (resultSet.next()) {
+            String link = resultSet.getString("LinkSongs");
+            jsonObject.addProperty("link", link);  // Add each result as a property to the JSON object
+        }
+
+        return jsonObject;
+    }
+    public static void  IncreaseLike(String name) throws SQLException {
+
+        PreparedStatement stmts2 = DatabaseConnection.connectPlz().prepareStatement("UPDATE Music SET Like = Like + 1 WHERE SongName = ?");
+        stmts2.setString(1, name);
+        stmts2.executeUpdate();
+        ;
+
+    }
+    public static void DecreaseLike(String name) throws SQLException {
+        PreparedStatement stmts2 = DatabaseConnection.connectPlz().prepareStatement("UPDATE Music SET Like = Like - 1 WHERE SongName = ?");
+        stmts2.setString(1, name);
+        stmts2.executeUpdate();
+
+    }
+
+
 }

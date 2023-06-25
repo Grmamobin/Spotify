@@ -95,19 +95,11 @@
          <opaqueInsets>
             <Insets />
          </opaqueInsets></Label>
-        <Button fx:id="pause" layoutX="93.0" layoutY="743.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="0.0" style="-fx-background-color: transparent;">
+        <Button fx:id="play" layoutX="93.0" layoutY="743.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="0.0" style="-fx-background-color: transparent;">
             <graphic>
-                <ImageView fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="IIMAGE" fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@Pictures/pause-button.png" />
-                    </image>
-                </ImageView>
-            </graphic></Button>
-        <Button fx:id="play" layoutX="146.0" layoutY="747.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;">
-            <graphic>
-                <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@Pictures/play-2.png" />
                     </image>
                 </ImageView>
             </graphic></Button>
@@ -116,7 +108,7 @@
                 <ImageView fx:id="imageSONG" fitHeight="237.0" fitWidth="216.0" layoutX="3.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
             </children>
         </AnchorPane>
-        <Button fx:id="nextSong" layoutX="192.0" layoutY="738.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="46.0" style="-fx-background-color: transparent;">
+        <Button fx:id="nextSong" layoutX="161.0" layoutY="739.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="46.0" style="-fx-background-color: transparent;">
             <graphic>
                 <ImageView fitHeight="41.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                     <image>

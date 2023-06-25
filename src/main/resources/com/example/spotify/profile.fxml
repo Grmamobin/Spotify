@@ -55,6 +55,7 @@
       <Label fx:id="name" layoutX="290.0" layoutY="247.0" prefHeight="17.0" prefWidth="256.0" textFill="WHITE" />
       <Label fx:id="password" layoutX="312.0" layoutY="277.0" prefHeight="17.0" prefWidth="204.0" textFill="WHITE" />
       <Label fx:id="email" layoutX="287.0" layoutY="306.0" prefHeight="17.0" prefWidth="275.0" textFill="WHITE" />
-      <Circle fill="#181818" layoutX="278.0" layoutY="119.0" radius="65.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="Circle" fill="#181818" layoutX="278.0" layoutY="119.0" radius="65.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="Save" layoutX="461.0" layoutY="42.0" mnemonicParsing="false" onAction="#Save" style="-fx-background-color: transparent;" styleClass="upgrade-button" stylesheets="@Style.css" text="Save" textFill="WHITE" />
    </children>
 </AnchorPane>

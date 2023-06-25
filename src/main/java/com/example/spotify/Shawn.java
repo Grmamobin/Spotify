@@ -2,6 +2,7 @@ package com.example.spotify;
 
 import com.example.spotify.DataBase.Music;
 import com.example.spotify.DataBase.DatabaseConnection;
+import com.example.spotify.DataBase.User;
 import com.example.spotify.Handler.Request;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
@@ -22,7 +23,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
-import java.io.IOException;
+
+import java.io.*;
+
 import javafx.scene.media.Media;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -38,7 +41,7 @@ import java.util.ResourceBundle;
 
 public class Shawn implements Initializable {
     @FXML
-    private ImageView image;
+    private ImageView image,imageLIKE;
     @FXML
     private Circle circle;
     @FXML
@@ -86,11 +89,15 @@ public class Shawn implements Initializable {
     private Button unlike;
     @FXML
     private Button previousSong,nextSong,pause,play;
+    @FXML
+    private Button Download,addPlayList;
     private Connection connection;
     private PreparedStatement prepared;
     private Statement statement;
     private ResultSet resultSet;
     private Image images;
+    @FXML
+    private ImageView IIMAGE;
     private  MediaPlayer mediaPlayer;
     private Music music;
     private Parent root;
@@ -98,7 +105,8 @@ public class Shawn implements Initializable {
     private Stage stage = new Stage();
     private Scanner in;
     private MediaPlayer mediaPlayer2;
-
+    private boolean check = false;
+    private boolean orNor = false;
     @FXML
     void insta(ActionEvent event) {
         String url = "https://www.instagram.com/shawnmendes/";
@@ -167,12 +175,15 @@ public class Shawn implements Initializable {
     public void selectSong() throws IOException {
 
         Music music = availableSongs.getSelectionModel().getSelectedItem();
+
+        //set up song image
         int num = availableSongs.getSelectionModel().getFocusedIndex();
         if ((num-1)<-1){ return;}
         String url = "file:"+music.getImageMusic();
         images = new Image(url,234,250,false,true);
         imageSONG.setImage(images);
 
+        //playing song
         //send via json
         JsonObject jsonRequest = new JsonObject();
         jsonRequest.addProperty("TypeRE", "listen to this music");
@@ -184,13 +195,29 @@ public class Shawn implements Initializable {
         String response = in.nextLine();
         JsonObject jsonResponse = new Gson().fromJson(response, JsonObject.class);
         String result = jsonResponse.get("link").getAsString(); //receive song via server
+
         String link = result.replaceAll(" ", "%20");
         url = "file://" + link;
         mediaPlayer2 = new MediaPlayer(new Media(url));
 
         //play and pause and previous and next
-        play.setOnAction(event -> mediaPlayer2.play());
-        pause.setOnAction(event -> mediaPlayer2.pause());
+        play.setOnAction(event ->{
+            mediaPlayer2.play();
+            Image image1;
+            if (music != null) {
+                if (!orNor) {
+                    InputStream Stream = getClass().getResourceAsStream("/com/example/spotify/Pictures/play-2.png");
+                    image1 = new Image(Stream);
+                    orNor = true;
+                } else {
+                    InputStream Stream = getClass().getResourceAsStream("/com/example/spotify/Pictures/pause-button.png");
+                    image1 = new Image(Stream);
+                    mediaPlayer2.pause();
+                    orNor = false;
+                }
+                IIMAGE.setImage(image1);
+            }
+        });
         previousSong.setOnAction(event -> {
             int currentIndex = availableSongs.getSelectionModel().getSelectedIndex();
 
@@ -217,8 +244,6 @@ public class Shawn implements Initializable {
                 }
             }
         });
-
-
     }
     @FXML
     void beforeMedia(ActionEvent event) {
@@ -226,6 +251,37 @@ public class Shawn implements Initializable {
             mediaPlayer.seek(mediaPlayer.getCurrentTime().subtract(Duration.seconds(0)));
         } else {
             mediaPlayer.seek(mediaPlayer.getCurrentTime().subtract(Duration.seconds(5)));
+        }
+    }
+    @FXML
+    void unlike() throws IOException {
+
+        Image image1;
+        Music music = availableSongs.getSelectionModel().getSelectedItem();
+
+        //send via json
+        JsonObject jsonRequest = new JsonObject();
+        jsonRequest.addProperty("TypeRE", "Like or unlike");
+        jsonRequest.addProperty("title",music.getTitle());
+
+        in = new Scanner(HelloApplication.use().getInputStream());
+        Request.everyRE(HelloApplication.use(), jsonRequest);
+
+        String response = in.next();
+        JsonObject jsonResponse = new Gson().fromJson(response, JsonObject.class);
+        jsonResponse.get("response").getAsString(); // correct database
+
+        if (music != null) {
+            if (!check) {
+                InputStream heartStream = getClass().getResourceAsStream("/com/example/spotify/Pictures/heart-1.png");
+                image1 = new Image(heartStream);
+                check = true;
+            } else {
+                InputStream heartStream = getClass().getResourceAsStream("/com/example/spotify/Pictures/heart.png");
+                image1 = new Image(heartStream);
+                check = false;
+            }
+            imageLIKE.setImage(image1);
         }
     }
 
@@ -241,20 +297,7 @@ public class Shawn implements Initializable {
         }
 
     }
-    @FXML
-    void unlike() {
-        unlike.setText("Like");
 
-/*        // set the text for the like button when it's selected
-        unlike.setSelected(false);
-        unlike.setDisable(false);
-        unlike.selectedProperty().addListener((obs, wasSelected, isNowSelected) -> {
-            if (isNowSelected) {
-                unlike.setText("Unlike");
-            } else {
-                unlike.setText("Like");
-            }
-        });*/
-    }
+
 }
 

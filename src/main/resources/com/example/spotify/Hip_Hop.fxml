@@ -37,7 +37,7 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="nextSong" layoutX="182.0" layoutY="270.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="85.0" style="-fx-background-color: transparent;">
+      <Button fx:id="nextSong" layoutX="159.0" layoutY="271.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="85.0" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="50.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -46,20 +46,11 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="pause" layoutX="95.0" layoutY="277.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="23.0" style="-fx-background-color: transparent;">
+      <Button fx:id="play" layoutX="95.0" layoutY="277.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="23.0" style="-fx-background-color: transparent;">
          <graphic>
-            <ImageView fitHeight="42.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="IIMAGE" fitHeight="42.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/pause-button.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="play" layoutX="146.0" layoutY="277.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="39.0" style="-fx-background-color: transparent;">
-         <graphic>
-            <ImageView fitHeight="34.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Pictures/play-2.png" />
                </image>
             </ImageView>
          </graphic>

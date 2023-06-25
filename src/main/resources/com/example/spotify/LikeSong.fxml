@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.LikeSong">
+   <children>
+      <TableView layoutX="72.0" layoutY="64.0" prefHeight="272.0" prefWidth="456.0" style="-fx-background-color: transparent;" stylesheets="@Style.css">
+        <columns>
+          <TableColumn minWidth="0.0" prefWidth="0.0" text="C1" />
+          <TableColumn prefWidth="455.0" text="List Liked" />
+        </columns>
+         <styleClass>
+            <String fx:value="show-hide-columns-button" />
+            <String fx:value="table-view" />
+            <String fx:value="tabel-view" />
+         </styleClass>
+      </TableView>
+   </children>
+</AnchorPane>

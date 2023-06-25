@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.fxml.FXML;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -56,7 +57,7 @@ public class POP implements Initializable {
     private ImageView imageSONG;
 
     @FXML
-    private Button pause;
+    private ImageView IIMAGE;
 
     @FXML
     private Button play;
@@ -73,6 +74,7 @@ public class POP implements Initializable {
     private ResultSet resultSet;
     private Image images;
     private MediaPlayer mediaPlayer2;
+    private boolean orNor = false;
     public ObservableList<Music> dataList() throws SQLException {
         //connect to database to select your desire song from shawn
         ObservableList<Music> MusicList = FXCollections.observableArrayList();
@@ -142,8 +144,23 @@ public class POP implements Initializable {
         mediaPlayer2 = new MediaPlayer(new Media(url));
 
         //play and pause and previous and next
-        play.setOnAction(event -> mediaPlayer2.play());
-        pause.setOnAction(event -> mediaPlayer2.pause());
+        play.setOnAction(event ->{
+            mediaPlayer2.play();
+            Image image1;
+            if (music != null) {
+                if (!orNor) {
+                    InputStream Stream = getClass().getResourceAsStream("/com/example/spotify/Pictures/play-2.png");
+                    image1 = new Image(Stream);
+                    orNor = true;
+                } else {
+                    InputStream Stream = getClass().getResourceAsStream("/com/example/spotify/Pictures/pause-button.png");
+                    image1 = new Image(Stream);
+                    mediaPlayer2.pause();
+                    orNor = false;
+                }
+                IIMAGE.setImage(image1);
+            }
+        });
         previousSong.setOnAction(event -> {
             int currentIndex = availableSongs.getSelectionModel().getSelectedIndex();
 

@@ -95,19 +95,11 @@
          </styleClass>
       </TableView>
       <Label layoutX="16.0" layoutY="477.0" prefHeight="330.0" prefWidth="251.0" style="-fx-background-radius: 10px;" styleClass="Labelxy" stylesheets="@Style.css" />
-      <Button fx:id="pause" layoutX="90.0" layoutY="759.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="25.0" style="-fx-background-color: transparent;">
+      <Button fx:id="play" layoutX="119.0" layoutY="763.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="33.0" style="-fx-background-color: transparent;">
          <graphic>
-            <ImageView fitHeight="29.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="IIMAGE" fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/pause-button.png" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Button fx:id="play" layoutX="140.0" layoutY="761.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" style="-fx-background-color: transparent;">
-         <graphic>
-            <ImageView fitHeight="26.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Pictures/play-2.png" />
                </image>
             </ImageView>
          </graphic></Button>
@@ -135,7 +127,7 @@
       </Button>
       <Button fx:id="unlike" layoutX="164.0" layoutY="733.0" mnemonicParsing="false" onAction="#unlike" prefHeight="27.0" prefWidth="34.0" style="-fx-background-color: transparent;">
          <graphic>
-            <ImageView fitHeight="38.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="imageLIKE" fitHeight="38.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pictures/heart.png" />
                </image>

@@ -22,6 +22,7 @@ import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import java.io.IOException;
 
+import java.io.InputStream;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -70,7 +71,9 @@ public class ChainSmokers implements Initializable {
     @FXML
     private Button before;
     @FXML
-    private Button previousSong,nextSong,pause,play;
+    private ImageView IIMAGE;
+    @FXML
+    private Button previousSong,nextSong,play;
     private Connection connection;
     private PreparedStatement prepared;
     private Statement statement;
@@ -78,6 +81,7 @@ public class ChainSmokers implements Initializable {
     private Image images;
     private MediaPlayer mediaPlayer2;
     private Scanner in;
+    private boolean orNor = false;
     @FXML
     void insta(ActionEvent event) {
         String url = "https://www.instagram.com/thechainsmokers/";
@@ -168,8 +172,23 @@ public class ChainSmokers implements Initializable {
         mediaPlayer2 = new MediaPlayer(new Media(url));
 
         //play and pause and previous and next
-        play.setOnAction(event -> mediaPlayer2.play());
-        pause.setOnAction(event -> mediaPlayer2.pause());
+        play.setOnAction(event ->{
+            mediaPlayer2.play();
+            Image image1;
+            if (music != null) {
+                if (!orNor) {
+                    InputStream Stream = getClass().getResourceAsStream("/com/example/spotify/Pictures/play-2.png");
+                    image1 = new Image(Stream);
+                    orNor = true;
+                } else {
+                    InputStream Stream = getClass().getResourceAsStream("/com/example/spotify/Pictures/pause-button.png");
+                    image1 = new Image(Stream);
+                    mediaPlayer2.pause();
+                    orNor = false;
+                }
+                IIMAGE.setImage(image1);
+            }
+        });
         previousSong.setOnAction(event -> {
             int currentIndex = availableSongs.getSelectionModel().getSelectedIndex();
 

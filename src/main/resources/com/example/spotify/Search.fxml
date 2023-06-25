@@ -2,13 +2,17 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="502.0" prefWidth="1020.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.Search">
+<AnchorPane prefHeight="720.0" prefWidth="1020.0" style="-fx-background-color: #181818;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spotify.Search">
    <children>
       <Button layoutX="404.0" layoutY="-4.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="178.0" style="-fx-background-color: transparent;" text="Search" textFill="WHITE">
          <font>
@@ -16,7 +20,7 @@
          </font>
       </Button>
       <TextField fx:id="keyboard" layoutX="99.0" layoutY="69.0" prefHeight="28.0" prefWidth="790.0" promptText="serach what you want!" styleClass="upgrade-button" stylesheets="@Style.css" />
-      <TableView fx:id="tableView" layoutX="105.0" layoutY="113.0" prefHeight="347.0" prefWidth="777.0" stylesheets="@Style.css">
+      <TableView fx:id="tableView" layoutX="105.0" layoutY="113.0" onMouseClicked="#selectSong" prefHeight="347.0" prefWidth="777.0" stylesheets="@Style.css">
         <columns>
           <TableColumn fx:id="ID" prefWidth="50.417762756347656" text="ID" />
           <TableColumn fx:id="Album" prefWidth="126.21592712402344" text="Album" />
@@ -36,5 +40,73 @@
             <String fx:value="column-header-background" />
          </styleClass>
       </TableView>
+      <Label layoutX="197.0" layoutY="481.0" prefHeight="203.0" prefWidth="610.0" stylesheets="@Style.css">
+         <styleClass>
+            <String fx:value="search-container" />
+            <String fx:value="Label" />
+            <String fx:value="LabelCH" />
+         </styleClass></Label>
+      <ImageView fitHeight="230.0" fitWidth="195.0" layoutX="206.0" layoutY="483.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Pictures/profile.png" />
+         </image>
+      </ImageView>
+      <Circle fx:id="circle" layoutX="302.0" layoutY="582.0" radius="86.0" stroke="BLACK" strokeType="INSIDE" />
+      <Button fx:id="nextSong" layoutX="528.0" layoutY="621.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="46.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/next-button-1.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="previousSong" layoutX="445.0" layoutY="624.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/previous.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="play" layoutX="534.0" layoutY="626.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+      <Button fx:id="play" layoutX="489.0" layoutY="626.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fx:id="IIMAGE" fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/pause-button.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label fx:id="labelSONG" layoutX="407.0" layoutY="514.0" prefHeight="37.0" prefWidth="360.0" text="               song name" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelArtist" layoutX="419.0" layoutY="562.0" prefHeight="31.0" prefWidth="358.0" text="                 Artists" textFill="WHITE">
+         <font>
+            <Font size="31.0" />
+         </font>
+      </Label>
+      <Button fx:id="Download" layoutX="648.0" layoutY="602.0" mnemonicParsing="false" onAction="#Download" prefHeight="37.0" prefWidth="46.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/download%20(1).png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="addPlayList" layoutX="648.0" layoutY="639.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="46.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pictures/next-2.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
