@@ -70,7 +70,6 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="play" layoutX="534.0" layoutY="626.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
       <Button fx:id="play" layoutX="489.0" layoutY="626.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fx:id="IIMAGE" fitHeight="23.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">

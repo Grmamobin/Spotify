@@ -195,7 +195,6 @@ public class Shawn implements Initializable {
         String response = in.nextLine();
         JsonObject jsonResponse = new Gson().fromJson(response, JsonObject.class);
         String result = jsonResponse.get("link").getAsString(); //receive song via server
-
         String link = result.replaceAll(" ", "%20");
         url = "file://" + link;
         mediaPlayer2 = new MediaPlayer(new Media(url));
