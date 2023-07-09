@@ -71,6 +71,8 @@ public class profile implements Initializable {
             jsonRequest.addProperty("TypeRE", "edit picture");
             jsonRequest.addProperty("link File",newFilePath);
 
+            System.out.println(User.getUserID());
+
             BufferedReader in = new BufferedReader(new InputStreamReader(HelloApplication.use().getInputStream()));
             Request.everyRE(HelloApplication.use(), jsonRequest);
 
@@ -143,6 +145,7 @@ public class profile implements Initializable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         JsonObject jsonResponse = new Gson().fromJson(response, JsonObject.class);
         String result = jsonResponse.get("response").getAsString();
 

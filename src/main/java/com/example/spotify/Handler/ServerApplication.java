@@ -153,7 +153,7 @@ public class ServerApplication implements Runnable {
             JSONObject jsonResponse = new JSONObject();
             jsonResponse.put("link",link);
 
-            if (jsonResponse != null){
+            if ( link != null){
                 //Sending response
                 Response.loadRS(serverSocket,jsonResponse,true);
             }
