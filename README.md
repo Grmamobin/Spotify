@@ -4,7 +4,7 @@ Final Project for Advanced Programming at SBU university !!
 
 
 ##  ScreenShots
-![spotify image](./screenshot/spotify.png) 
+![spotify image](./screenshot/spotify.png)
 ![login image](./screenshot/login.png)
 ![signup image](./screenshot/signup.png)
 ![menu image](screenshot/menu.png)
