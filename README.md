@@ -17,6 +17,6 @@ Final Project for Advanced Programming at SBU university 🤠🤠!!
 <img src="./screenshot/chainSmokersProfile.png" alt="chainSmokersProfile image" style="width: 400px;">
 
 ##  video
-[watch the artist profile =)](https://github.com/Grmamobin/Spotify/blob/master/screenshot/video_spotify.mp4)
+[watch the artist profile =)](https://github.com/Grmamobin/Spotify/blob/Front-end/screenshot/video_spotify.mp4)
 
 
