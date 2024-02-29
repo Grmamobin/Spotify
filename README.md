@@ -1,6 +1,6 @@
-#  SPOTIFY
+#  🎵SPOTIFY 🎶
 
-Final Project for Advanced Programming at SBU university !!
+Final Project for Advanced Programming at SBU university 🤠🤠!!
 
 
 ##  ScreenShots
