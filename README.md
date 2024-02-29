@@ -4,17 +4,17 @@ Final Project for Advanced Programming at SBU university !!
 
 
 ##  ScreenShots
-![spotify image](./screenshot/spotify.png)
-![login image](./screenshot/login.png)
-![signup image](./screenshot/signup.png)
-![menu image](screenshot/menu.png)
-![profile image](screenshot/profile.png)
-![create image](screenshot/create.png)
-![search image](screenshot/search.png)
-![genre image](screenshot/genre.png)
-![artistProfile image](screenshot/artistProfile.png)
-![shawnProfile image](screenshot/shawnProfile.png)
-![chainSmokersProfile image](screenshot/chainSmokersProfile.png)
+<img src="./screenshot/spotify.png" alt="spotify image" style="width: 200px;">
+<img src="./screenshot/login.png" alt="login image" style="width: 200px;">
+<img src="./screenshot/signup.png" alt="signup image" style="width: 200px;">
+<img src="./screenshot/menu.png" alt="menu image" style="width: 200px;">
+<img src="./screenshot/profile.png" alt="profile image" style="width: 200px;">
+<img src="./screenshot/create.png" alt="create image" style="width: 200px;">
+<img src="./screenshot/search.png" alt="search image" style="width: 200px;">
+<img src="./screenshot/genre.png" alt="genre image" style="width: 200px;">
+<img src="./screenshot/artistProfile.png" alt="artistProfile image" style="width: 20px;">
+<img src="./screenshot/shawnProfile.png" alt="shawnProfile image" style="width: 200px;">
+<img src="./screenshot/chainSmokersProfile.png" alt="chainSmokersProfile image" style="width: 200px;">
 
 ##  video
 [watch the artist profile =)](https://github.com/Grmamobin/Spotify/blob/master/screenshot/video_spotify.mp4)
