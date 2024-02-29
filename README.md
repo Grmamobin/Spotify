@@ -4,9 +4,9 @@ Final Project for Advanced Programming at SBU university !!
 
 
 ##  ScreenShots
-[first](screenshot/Screenshot 2024-02-29 at 20.31.36.png)
+![first](./screenshot/Screenshot 2024-02-29 at 20.31.36.png)
 
-![second](screenshot/Screenshot 2024-02-29 at 20.59.54.png)
+![second](./screenshot/Screenshot 2024-02-29 at 20.59.54.png)
 
 ![third](screenshot/Screenshot 2024-02-29 at 20.32.13.png)
 
